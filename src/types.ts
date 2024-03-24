@@ -1,35 +1,42 @@
 export interface User {
-  id: number;
-  name: string;
-  age: number;
-  profession: Profession;
-  createdPoints: Point[];
-  savedPoints: Point[];
-  comments: Comment;
+  id: string | undefined;
+  userName: string;
+  password: string;
 }
 
-export type Profession = {
-  professions: string[]; //TODO value needs to be propagated
-};
-
-export type Category = {
-  categories: string[]; //TODO value needs to be propagated
-};
-
-export type Comment = {
+export type Comments = {
   id: number;
-  parentID: number;
-  comment: string;
+  userId: number;
+  postId: number;
+  content: string;
 };
 
-export type Point = {
+export type Tag = {
   id: number;
-  URL: string;
-  title: string;
-  description: string;
-  poster: string;
-  category: string; //TODO make this value of type Category
+  postId: number;
+  tagName: string;
+};
+
+export type ProtoPost = {
+  id: string; //TODO return to Number in real database.
+  createdByID: string;
+  postContent: string;
+  creationTime: Date;
+};
+
+export type Post = {
+  id: string; //TODO return to Number in real database.
+  //createdBy: string; //change to User down the line
+  createdByID: string;
+  postContent: string;
+  creationTime: Date;
   tag: string;
-  value: number; //how often the point is liked
-  public: boolean;
+  likes: number; //how often the point is liked
+  comments: number;
+};
+
+export type Favorites = {
+  id: number;
+  userId: string;
+  postId: string;
 };

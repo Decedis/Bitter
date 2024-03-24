@@ -1,43 +1,65 @@
 import * as _ from "lodash-es";
 import { writeFileSync } from "fs";
 import { faker } from "@faker-js/faker";
-const capitalize = _.capitalize;
+//const capitalize = _.capitalize;
 const range = _.range;
 const sample = _.sample;
 
-const pointAmount = 20;
-const categories = [
-  "engineer",
-  "professor",
-  "mentor",
-  "banker",
-  "web developer",
-  "writer",
-  "philosopher",
-  "cook",
-  "humanities",
-  "STEM",
-  "astronomy",
-  "physics",
-  "mathematics",
-  "literature",
-  "plumbing",
-  "roofing",
+const postAmount = 20;
+const tags = [
+  "#engineering",
+  "#poetry",
+  "#teaching",
+  "#finance",
+  "#programming",
+  "#writing",
+  "#philosophy",
+  "#cooking",
+  "#humanities",
+  "#STEM",
+  "#astronomy",
+  "#physics",
+  "#mathematics",
+  "#literature",
+  "#plumbing",
+  "#roofing",
 ];
-const tags = ["newbie", "help", "tutorial", "advanced", "self", "intermediate"];
+
 const db = {
-  points: range(pointAmount).map((_, id) => ({
-    URL: "",
-    title: `${capitalize(faker.word.words())} ${capitalize(
-      faker.word.words()
-    )}`,
-    description: faker.word.words(sample([8, 5, 7])),
-    poster: `${capitalize(faker.person.firstName())}`,
-    category: sample(categories),
-    tag: sample(tags),
-    value: sample(1, 100),
-    public: sample([true, false]),
+  posts: range(postAmount).map((_, id) => ({
+    createdByID: sample([0, 1]),
+    postContent: faker.word.words(sample([8, 5, 7])),
     id,
+  })),
+  tags: range(tags.length).map((_, id) => ({
+    id,
+    postId: range(tags.length),
+    tagName: sample(tags),
+  })),
+  users: [
+    {
+      id: 0,
+      userName: "test_1",
+      password: "testPass1",
+    },
+    {
+      id: 1,
+      userName: "test_2",
+      password: "testPass2",
+    },
+  ],
+  //posts-to-tags or tags-to-posts
+  comments: range(postAmount).map((_, id) => ({
+    id,
+    userId: sample([0, 1]),
+    postId: sample(range(0, 19)),
+    content: "The content of the comment",
+  })),
+  //comments-to-post: range(postAmount)
+  favorites: range(postAmount).map((_, id) => ({
+    id,
+    userId: sample([0, 1]),
+    postId: sample(range(0, 19)),
   })),
 };
 

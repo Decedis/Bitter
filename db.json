@@ -1,204 +1,579 @@
 {
-  "points": [
+  "posts": [
     {
-      "URL": "",
-      "title": "Provided helplessly apud Spectacular bad hail",
-      "description": "impish mother opposite over after coolly assertion",
-      "poster": "Jakayla",
-      "category": "mentor",
-      "tag": "help",
-      "public": false,
-      "id": 0
+      "id": "4787",
+      "postContent": "Let's verify this ",
+      "createdByID": "0",
+      "creationTime": "2024-03-16T23:19:21.399Z"
     },
     {
-      "URL": "",
-      "title": "Ugh Generously yahoo honestly",
-      "description": "biodegradable shameless mean bedeck needily drawing helpfully per",
-      "poster": "Jared",
-      "category": "astronomy",
-      "tag": "self",
-      "public": true,
-      "id": 1
+      "id": "b239",
+      "postContent": "Let's verify this again",
+      "createdByID": "0",
+      "creationTime": "2024-03-16T23:20:50.438Z"
     },
     {
-      "URL": "",
-      "title": "Sneaky woot meh Blanch",
-      "description": "meh scowl benefit zowie outside",
-      "poster": "Josianne",
-      "category": "engineer",
-      "tag": "advanced",
-      "public": false,
-      "id": 2
+      "id": "d390",
+      "postContent": "test of the path",
+      "createdByID": "0",
+      "creationTime": "2024-03-18T03:18:39.956Z"
     },
     {
-      "URL": "",
-      "title": "Calculating hence wild Drat kennel",
-      "description": "for obediently league psst why readmit carefully rave",
-      "poster": "Anthony",
-      "category": "philosopher",
-      "tag": "newbie",
-      "public": false,
-      "id": 3
+      "id": "2129",
+      "postContent": "This site is so shit",
+      "createdByID": "0",
+      "creationTime": "2024-03-18T07:00:47.225Z"
     },
     {
-      "URL": "",
-      "title": "Abnormally Expert",
-      "description": "supposing big-hearted oregano clear wholly embitter professor",
-      "poster": "Larue",
-      "category": "mentor",
-      "tag": "advanced",
-      "public": true,
-      "id": 4
+      "id": "e6a2",
+      "postContent": "let us test our path",
+      "createdByID": "0",
+      "creationTime": "2024-03-20T21:15:57.822Z"
     },
     {
-      "URL": "",
-      "title": "Maintainer filthy Afore",
-      "description": "quarrelsome apropos because last obliterate teriyaki surprised once",
-      "poster": "Larry",
-      "category": "mathematics",
-      "tag": "newbie",
-      "public": true,
-      "id": 5
+      "id": "84ab",
+      "postContent": "why no submit?",
+      "createdByID": "0",
+      "creationTime": "2024-03-20T21:44:01.575Z"
     },
     {
-      "URL": "",
-      "title": "Aside Oddball",
-      "description": "faith basics softball cheerfully rarely but fail purvey",
-      "poster": "Verlie",
-      "category": "roofing",
-      "tag": "intermediate",
-      "public": true,
-      "id": 6
+      "id": "d65d",
+      "postContent": "hello valiant",
+      "createdByID": "0",
+      "creationTime": "2024-03-20T22:03:23.439Z"
     },
     {
-      "URL": "",
-      "title": "Oof Mockingly",
-      "description": "woot oof madam ack why mango strong frugal",
-      "poster": "Deangelo",
-      "category": "physics",
-      "tag": "help",
-      "public": false,
-      "id": 7
+      "id": "b7c7",
+      "postContent": "tt",
+      "createdByID": "0",
+      "creationTime": "2024-03-20T23:57:14.104Z"
     },
     {
-      "URL": "",
-      "title": "Unless whoa Uh-huh shipwreck",
-      "description": "anti modulo fence reassuringly misinterpret",
-      "poster": "Viva",
-      "category": "philosopher",
-      "tag": "advanced",
-      "public": true,
-      "id": 8
+      "id": "895b",
+      "postContent": "why no submit?",
+      "createdByID": "0",
+      "creationTime": "2024-03-21T03:40:04.806Z"
     },
     {
-      "URL": "",
-      "title": "With rowdy Afterwards",
-      "description": "up silently link overburden ack duh stealthily helplessly",
-      "poster": "Leda",
-      "category": "literature",
-      "tag": "advanced",
-      "public": false,
-      "id": 9
+      "id": "b9c1",
+      "postContent": "Wow, so much value.",
+      "createdByID": "1",
+      "creationTime": "2024-03-21T05:01:27.884Z"
+    }
+  ],
+  "tags": [
+    {
+      "id": "0",
+      "postId": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "tagName": "#writing"
     },
     {
-      "URL": "",
-      "title": "Threadbare Hospital",
-      "description": "triumph poem tactile bumper overconfidently ah bloodflow brr",
-      "poster": "Milton",
-      "category": "mentor",
-      "tag": "advanced",
-      "public": true,
-      "id": 10
+      "id": "1",
+      "postId": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "tagName": "#engineering"
     },
     {
-      "URL": "",
-      "title": "Circa Unethically",
-      "description": "overcompensate ack fussy yahoo meh although off bah",
-      "poster": "Audra",
-      "category": "astronomy",
-      "tag": "newbie",
-      "public": false,
-      "id": 11
+      "id": "2",
+      "postId": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "tagName": "#teaching"
     },
     {
-      "URL": "",
-      "title": "Smear following hm Wiry",
-      "description": "cost highly ew scornful hockey drive footnote aw",
-      "poster": "Ahmad",
-      "category": "mentor",
-      "tag": "advanced",
-      "public": true,
-      "id": 12
+      "id": "3",
+      "postId": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "tagName": "#writing"
     },
     {
-      "URL": "",
-      "title": "Bah Methodology",
-      "description": "zowie instead oh less so failing phooey eek",
-      "poster": "Eddie",
-      "category": "philosopher",
-      "tag": "tutorial",
-      "public": false,
-      "id": 13
+      "id": "4",
+      "postId": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "tagName": "#humanities"
     },
     {
-      "URL": "",
-      "title": "Sister-in-law Plus or mmm",
-      "description": "mandarin during practical table off truthfully geez flamboyant",
-      "poster": "Maryse",
-      "category": "banker",
-      "tag": "help",
-      "public": true,
-      "id": 14
+      "id": "5",
+      "postId": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "tagName": "#astronomy"
     },
     {
-      "URL": "",
-      "title": "Consequently where too But each by",
-      "description": "pinafore edible surprised poorly goodbye",
-      "poster": "Elaina",
-      "category": "mathematics",
-      "tag": "advanced",
-      "public": true,
-      "id": 15
+      "id": "6",
+      "postId": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "tagName": "#STEM"
     },
     {
-      "URL": "",
-      "title": "Ah mint utterly But midst tinted",
-      "description": "excluding tab pro abaft yowza attraction boo",
-      "poster": "Cory",
-      "category": "philosopher",
-      "tag": "self",
-      "public": true,
-      "id": 16
+      "id": "7",
+      "postId": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "tagName": "#plumbing"
     },
     {
-      "URL": "",
-      "title": "Even trusty brag Geez wallop",
-      "description": "almond puzzling upon athwart eggnog lucky busily humiliating",
-      "poster": "Ayden",
-      "category": "literature",
-      "tag": "intermediate",
-      "public": false,
-      "id": 17
+      "id": "8",
+      "postId": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "tagName": "#astronomy"
     },
     {
-      "URL": "",
-      "title": "Patroller vice Blazer who",
-      "description": "brave around ambition nor more instantly comment overtax",
-      "poster": "Ethyl",
-      "category": "literature",
-      "tag": "self",
-      "public": true,
-      "id": 18
+      "id": "9",
+      "postId": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "tagName": "#writing"
     },
     {
-      "URL": "",
-      "title": "Boohoo minimum Immediately ripen impinge",
-      "description": "blah proselytize trap elated education sheepishly provided aw",
-      "poster": "Stone",
-      "category": "roofing",
-      "tag": "self",
-      "public": false,
-      "id": 19
+      "id": "10",
+      "postId": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "tagName": "#mathematics"
+    },
+    {
+      "id": "11",
+      "postId": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "tagName": "#programming"
+    },
+    {
+      "id": "12",
+      "postId": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "tagName": "#engineering"
+    },
+    {
+      "id": "13",
+      "postId": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "tagName": "#STEM"
+    },
+    {
+      "id": "14",
+      "postId": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "tagName": "#writing"
+    },
+    {
+      "id": "15",
+      "postId": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "tagName": "#mathematics"
+    }
+  ],
+  "users": [
+    {
+      "id": "0",
+      "userName": "test_1",
+      "password": "testPass1"
+    },
+    {
+      "id": "1",
+      "userName": "test_2",
+      "password": "testPass2"
+    }
+  ],
+  "comments": [
+    {
+      "id": "0",
+      "userId": 0,
+      "postId": 14,
+      "content": "The content of the comment"
+    },
+    {
+      "id": "1",
+      "userId": 0,
+      "postId": 16,
+      "content": "The content of the comment"
+    },
+    {
+      "id": "2",
+      "userId": 0,
+      "postId": 13,
+      "content": "The content of the comment"
+    },
+    {
+      "id": "3",
+      "userId": 1,
+      "postId": 16,
+      "content": "The content of the comment"
+    },
+    {
+      "id": "4",
+      "userId": 0,
+      "postId": 15,
+      "content": "The content of the comment"
+    },
+    {
+      "id": "5",
+      "userId": 0,
+      "postId": 11,
+      "content": "The content of the comment"
+    },
+    {
+      "id": "6",
+      "userId": 1,
+      "postId": 16,
+      "content": "The content of the comment"
+    },
+    {
+      "id": "7",
+      "userId": 0,
+      "postId": 5,
+      "content": "The content of the comment"
+    },
+    {
+      "id": "8",
+      "userId": 0,
+      "postId": 4,
+      "content": "The content of the comment"
+    },
+    {
+      "id": "9",
+      "userId": 1,
+      "postId": 12,
+      "content": "The content of the comment"
+    },
+    {
+      "id": "10",
+      "userId": 1,
+      "postId": 5,
+      "content": "The content of the comment"
+    },
+    {
+      "id": "11",
+      "userId": 0,
+      "postId": 14,
+      "content": "The content of the comment"
+    },
+    {
+      "id": "12",
+      "userId": 1,
+      "postId": 10,
+      "content": "The content of the comment"
+    },
+    {
+      "id": "13",
+      "userId": 0,
+      "postId": 5,
+      "content": "The content of the comment"
+    },
+    {
+      "id": "14",
+      "userId": 0,
+      "postId": 0,
+      "content": "The content of the comment"
+    },
+    {
+      "id": "15",
+      "userId": 0,
+      "postId": 10,
+      "content": "The content of the comment"
+    },
+    {
+      "id": "16",
+      "userId": 1,
+      "postId": 10,
+      "content": "The content of the comment"
+    },
+    {
+      "id": "17",
+      "userId": 1,
+      "postId": 5,
+      "content": "The content of the comment"
+    },
+    {
+      "id": "18",
+      "userId": 0,
+      "postId": 8,
+      "content": "The content of the comment"
+    },
+    {
+      "id": "19",
+      "userId": 1,
+      "postId": 6,
+      "content": "The content of the comment"
+    }
+  ],
+  "favorites": [
+    {
+      "id": "9a8e",
+      "userId": "0",
+      "postId": "b7c7"
+    },
+    {
+      "id": "0f83",
+      "userId": "0",
+      "postId": "d390"
+    },
+    {
+      "id": "c9bc",
+      "userId": "0",
+      "postId": "b239"
+    },
+    {
+      "id": "82eb",
+      "userId": "1",
+      "postId": "895b"
+    },
+    {
+      "id": "1695",
+      "userId": "1",
+      "postId": "b7c7"
     }
   ]
 }

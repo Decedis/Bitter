@@ -1,12 +1,25 @@
 import "./App.css";
-import { PointsProvider } from "./Providers/PointsProviders";
-import { PointFeed } from "./Components/PointFeed";
+import { PostsProvider } from "./Providers/BackendProvider";
+import { Feed } from "./Components/Feed";
+import { Nav } from "./Components/Nav";
+import { Routes, Route } from "react-router-dom";
+import { Login } from "./Components/Login";
+import { FakeAuthProvider } from "./Providers/FakeAuthProvider";
 
 function App() {
   return (
-    <PointsProvider>
-      <PointFeed />
-    </PointsProvider>
+    <FakeAuthProvider>
+      <PostsProvider>
+        <Nav />
+
+        <Routes>
+          <Route path="/">
+            <Route index element={<Feed />} />
+            <Route path="login" element={<Login />} />
+          </Route>
+        </Routes>
+      </PostsProvider>
+    </FakeAuthProvider>
   );
 }
 
