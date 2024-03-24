@@ -24,7 +24,8 @@
 
 ## TODO
 
-- [ x ]Create posts
+- [x] Create posts
 - Delete posts
 - Edit posts
-- Set active `heart` icon if `user` === `likedBy` value of `PostCard`
+- [] Create comments
+- Render Comments
