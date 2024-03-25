@@ -27,5 +27,5 @@
 - [x] Create posts
 - Delete posts
 - Edit posts
-- [] Create comments
 - Render Comments
+- [ ] Create comments
