@@ -32,7 +32,7 @@ export type Post = {
   creationTime: Date;
   tag: string;
   likes: number; //how often the point is liked
-  comments: number;
+  comments: Comments[];
 };
 
 export type Favorites = {

@@ -1,11 +1,18 @@
 import { PostCard } from "./PostCard";
-import { Favorites, Post } from "../types";
-import { useFavorites, usePosts } from "../services/queries";
+import { Comments, Favorites, Post } from "../types";
+import { useComments, useFavorites, usePosts } from "../services/queries";
 import { CreatePost } from "./CreatePost";
 
 export const Feed = () => {
   const postsQuery = usePosts();
   const favQuery = useFavorites();
+  const commentsQuery = useComments();
+
+  const sortedPosts = postsQuery.data?.sort((a, b) => {
+    const dateA = new Date(a.creationTime);
+    const dateB = new Date(b.creationTime);
+    return dateB.getTime() - dateA.getTime();
+  });
 
   const cardLikes = (localId: string, favQuery: Favorites[]) => {
     const newArr = (favQuery ?? []).filter((fav) => {
@@ -14,11 +21,13 @@ export const Feed = () => {
     return newArr;
   };
 
-  const sortedPosts = postsQuery.data?.sort((a, b) => {
-    const dateA = new Date(a.creationTime);
-    const dateB = new Date(b.creationTime);
-    return dateB.getTime() - dateA.getTime();
-  });
+  const postComments = (id: string) => {
+    return commentsQuery?.data
+      ? commentsQuery.data.filter(
+          (comments: Comments) => comments.postId === id
+        )
+      : ([] as Comments[]);
+  };
 
   return (
     <section className="mt-10 p-4 w-fit mx-auto flex flex-col">
@@ -34,7 +43,7 @@ export const Feed = () => {
               tag={post.tag}
               postContent={post.postContent}
               likes={cardLikes(post.id, favQuery.data as Favorites[]).length}
-              comments={post.comments} //comments.length?
+              comments={postComments(post.id)}
             />
           ))
         ) : (

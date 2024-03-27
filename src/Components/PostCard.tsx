@@ -1,4 +1,4 @@
-import { Comments, Favorites, Post } from "../types";
+import { Favorites, Post } from "../types";
 
 import {
   HeartIcon,
@@ -8,7 +8,7 @@ import {
 import { PostButton } from "./PostButton";
 import { useContext, useState } from "react";
 import { UserContext } from "../Providers/FakeAuthProvider";
-import { useComments, useFavorites, useUser } from "../services/queries";
+import { useFavorites, useUser } from "../services/queries";
 import { useCreateFavorite, useDeleteFavorite } from "../services/mutations";
 import { CommentsList } from "./CommentsList";
 import { findAuthorName } from "../utils";
@@ -22,7 +22,6 @@ export const PostCard = ({
 }: Post) => {
   const favQuery = useFavorites();
   const userQuery = useUser();
-  const commentsQuery = useComments();
   const { user } = useContext(UserContext);
   const { trigger: createFavoriteTrigger } = useCreateFavorite();
   const { trigger: deleteFavoriteTrigger } = useDeleteFavorite();
@@ -35,10 +34,6 @@ export const PostCard = ({
 
     setIsCommentsCollapsed((prev) => !prev);
   };
-
-  const postComments = commentsQuery
-    ? commentsQuery.data?.filter((comments: Comments) => comments.postId === id)
-    : ([] as Comments[]);
 
   const isHeartActive = (localId: string, favQuery: Favorites[]) => {
     const newArr = (favQuery ?? []).filter((fav) => {
@@ -115,7 +110,7 @@ export const PostCard = ({
       <div className="flex justify-between self-center w-full text-white mb-4">
         <PostButton
           icon={<ChatBubbleOvalLeftIcon />}
-          value={comments}
+          value={comments.length}
           onClickEvent={handleToggleComments}
         />
         <PostButton
@@ -135,11 +130,11 @@ export const PostCard = ({
         />
         <PostButton icon={<BookmarkIcon />} value={0} />
       </div>
-      {postComments && (
+      {comments && (
         <CommentsList
           collapsed={isCommentsCollapsed}
           postID={id}
-          commentsList={postComments}
+          commentsList={comments}
         />
       )}
     </div>
