@@ -1,18 +1,17 @@
-import { useComments } from "../services/queries";
+import { useComments, useUser } from "../services/queries";
 import { Comments } from "../types";
+import { findAuthorName } from "../utils";
 
 export const CommentsList = ({
   collapsed,
+  commentsList,
   postID,
 }: {
   collapsed: boolean;
+  commentsList: Comments[];
   postID: string;
 }) => {
-  const commentsQuery = useComments();
-
-  const postComments = commentsQuery.data?.filter(
-    (comments: Comments) => comments.postId === postID
-  );
+  const userQuery = useUser();
   /*
   {
       "id": "0",
@@ -27,20 +26,19 @@ export const CommentsList = ({
     - if not empty, iterate through commentsQuery.data and display each comment
     - filter, only render each comment that matches the postID
     - if collapsed is true, render the comments in a collapsible format
-    
+    - don't forget to use `collapse` and `expand` classes to style the collapsible format
  */
   return (
     <>
       {collapsed ? (
-        <div className="collapse bg-base-200 block mt-4" key={postID}>
-          <input type="radio" name="my-accordion-1" defaultChecked />
-          <div className="collapse-content">
-            <div>@</div>
-            <div>Content</div>
-          </div>
-        </div>
+        <div className="bg-blue-500 collapse"></div>
       ) : (
-        <div></div>
+        commentsList.map((commentVal: Comments) => (
+          <div className="bg-blue-800 mb-4 p-2 rounded-md" key={commentVal.id}>
+            <div>@{findAuthorName(commentVal.userId, userQuery)}</div>
+            <div>{commentVal.content}</div>
+          </div>
+        ))
       )}
     </>
   );

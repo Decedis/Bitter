@@ -6,14 +6,14 @@ export interface User {
 
 export type Comments = {
   id: number;
-  userId: number;
-  postId: number;
+  userId: string;
+  postId: string;
   content: string;
 };
 
 export type Tag = {
   id: number;
-  postId: number;
+  postId: string;
   tagName: string;
 };
 

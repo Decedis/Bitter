@@ -24,8 +24,15 @@
 
 ## TODO
 
+- [x] Login
+- [ ] Account creation
 - [x] Create posts
-- Delete posts
-- Edit posts
-- Render Comments
+- [x] Like posts
+- [ ] Bookmark posts
+- [ ] Bookmark route
+- [ ] Delete posts
+- [ ] Edit posts
+- [ ] Render comments
 - [ ] Create comments
+- [ ] Like comments
+- [ ] Hashtag rendering in comments, posts, and search

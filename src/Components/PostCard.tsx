@@ -1,4 +1,4 @@
-import { Favorites, Post } from "../types";
+import { Comments, Favorites, Post } from "../types";
 
 import {
   HeartIcon,
@@ -8,7 +8,7 @@ import {
 import { PostButton } from "./PostButton";
 import { useContext, useState } from "react";
 import { UserContext } from "../Providers/FakeAuthProvider";
-import { useFavorites, useUser } from "../services/queries";
+import { useComments, useFavorites, useUser } from "../services/queries";
 import { useCreateFavorite, useDeleteFavorite } from "../services/mutations";
 import { CommentsList } from "./CommentsList";
 import { findAuthorName } from "../utils";
@@ -22,23 +22,28 @@ export const PostCard = ({
 }: Post) => {
   const favQuery = useFavorites();
   const userQuery = useUser();
+  const commentsQuery = useComments();
   const { user } = useContext(UserContext);
   const { trigger: createFavoriteTrigger } = useCreateFavorite();
   const { trigger: deleteFavoriteTrigger } = useDeleteFavorite();
 
-  const [isCommentsActiveCollapsed, setIsCommentsCollapsed] = useState(true);
+  const [isCommentsCollapsed, setIsCommentsCollapsed] = useState(true);
+  console.log("isCommentsCollapsed: ", isCommentsCollapsed);
 
-  // const findAuthorName = (createdByID: string) => {
-  //   const authorName = userQuery.data?.find((user) => user.id === createdByID);
-  //   return authorName?.userName;
-  // };
+  const handleToggleComments = () => {
+    console.log("handleToggle clicked");
+
+    setIsCommentsCollapsed((prev) => !prev);
+  };
+
+  const postComments = commentsQuery
+    ? commentsQuery.data?.filter((comments: Comments) => comments.postId === id)
+    : ([] as Comments[]);
 
   const isHeartActive = (localId: string, favQuery: Favorites[]) => {
     const newArr = (favQuery ?? []).filter((fav) => {
       return fav.postId === localId;
     });
-    console.log("newArr: ", newArr);
-
     for (let i = 0; i < newArr.length; i++) {
       if (user?.id === newArr[i].userId) {
         return true;
@@ -91,7 +96,7 @@ export const PostCard = ({
   return (
     <div
       key={id}
-      className="card w-96 rounded-sm bg-neutral text-primary-content p-2 text-white"
+      className="card w-96 rounded-sm bg-neutral text-primary-content p-2 text-white "
     >
       <h3 className=" pb-1 ">
         <div className="flex flex-row gap-2 border-b-2 border-white text-white ">
@@ -107,8 +112,12 @@ export const PostCard = ({
       </h3>
       <div className="postContent text-white w-full h-40">{postContent}</div>
 
-      <div className="flex justify-between self-center w-full text-white">
-        <PostButton icon={<ChatBubbleOvalLeftIcon />} value={comments} />
+      <div className="flex justify-between self-center w-full text-white mb-4">
+        <PostButton
+          icon={<ChatBubbleOvalLeftIcon />}
+          value={comments}
+          onClickEvent={handleToggleComments}
+        />
         <PostButton
           icon={
             <HeartIcon
@@ -124,9 +133,15 @@ export const PostCard = ({
           }}
           value={likes}
         />
-        <PostButton icon={<BookmarkIcon />} />
+        <PostButton icon={<BookmarkIcon />} value={0} />
       </div>
-      <CommentsList collapsed={false} />
+      {postComments && (
+        <CommentsList
+          collapsed={isCommentsCollapsed}
+          postID={id}
+          commentsList={postComments}
+        />
+      )}
     </div>
   );
 };
