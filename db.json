@@ -589,6 +589,18 @@
       "userId": "0",
       "postId": "c7cb",
       "commentContent": "And this works, too. "
+    },
+    {
+      "id": "4932",
+      "userId": "0",
+      "postId": "c7cb",
+      "commentContent": "Whoa"
+    },
+    {
+      "id": "e5a4",
+      "userId": "0",
+      "postId": "b9c1",
+      "commentContent": "Holy shit"
     }
   ],
   "favorites": [
@@ -623,9 +635,14 @@
       "postId": "cd78"
     },
     {
-      "id": "41aa",
+      "id": "5e14",
       "userId": "0",
       "postId": "c7cb"
+    },
+    {
+      "id": "1f16",
+      "userId": "0",
+      "postId": "b9c1"
     }
   ]
 }

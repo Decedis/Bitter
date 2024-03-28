@@ -24,7 +24,7 @@
 
 - Update the hooks to only work if the data is present
 
-## TODO
+## Feature TODO
 
 - [x] Login
 - [ ] Account creation
@@ -38,3 +38,9 @@
 - [x] Create comments
 - [ ] Like comments
 - [ ] Hashtag rendering in comments, posts, and search
+
+## Code TODO
+
+- [ ] Refactor backend hooks into a single provider
+- [ ] Update providers and hooks such that they assume a user is present
+- [ ] Create CommentFavorites type and database route

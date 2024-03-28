@@ -27,7 +27,7 @@ export const CreateComment = (postId: { postId: string }) => {
   };
   return (
     <form
-      className="textarea textarea-secondary relative p-0 border-2"
+      className="textarea textarea-secondary relative p-0 m-2 border-2"
       onSubmit={(e) => {
         e.preventDefault();
         handleCreateComment();
@@ -40,6 +40,7 @@ export const CreateComment = (postId: { postId: string }) => {
         type="text"
         name="createComment"
         id="createComment"
+        autoComplete="off"
         value={commentDraft}
         onChange={(e) => {
           setCommentDraft(e.target.value);

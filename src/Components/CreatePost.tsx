@@ -47,6 +47,7 @@ export const CreatePost = () => {
         type="text"
         name="createPost"
         id="createPost"
+        autoComplete="off"
         value={postDraft}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           setPostDraft(e.target.value)
