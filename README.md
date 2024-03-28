@@ -20,7 +20,8 @@
   - Follows/Following
 - Search
 
-## Improvements
+## Improvements 
+- Update the hooks to only work if the data is present 
 
 ## TODO
 
