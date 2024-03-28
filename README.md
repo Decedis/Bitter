@@ -20,8 +20,9 @@
   - Follows/Following
 - Search
 
-## Improvements 
-- Update the hooks to only work if the data is present 
+## Improvements
+
+- Update the hooks to only work if the data is present
 
 ## TODO
 
@@ -33,7 +34,7 @@
 - [ ] Bookmark route
 - [ ] Delete posts
 - [ ] Edit posts
-- [ ] Render comments
-- [ ] Create comments
-- [ ] Like comments
+- [x] Render comments
+- [x] Create comments
+- [x] Like comments
 - [ ] Hashtag rendering in comments, posts, and search

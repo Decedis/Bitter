@@ -65,6 +65,12 @@
       "postContent": "Okay, here we go. ",
       "createdByID": "0",
       "creationTime": "2024-03-27T22:58:40.147Z"
+    },
+    {
+      "id": "c7cb",
+      "postContent": "A new comment",
+      "createdByID": "0",
+      "creationTime": "2024-03-28T06:53:20.419Z"
     }
   ],
   "tags": [
@@ -571,6 +577,18 @@
       "userId": "0",
       "postId": "cd78",
       "commentContent": "O fuck it works"
+    },
+    {
+      "id": "d5f5",
+      "userId": "0",
+      "postId": "cd78",
+      "commentContent": "Okay, we do work."
+    },
+    {
+      "id": "9e69",
+      "userId": "0",
+      "postId": "c7cb",
+      "commentContent": "And this works, too. "
     }
   ],
   "favorites": [
@@ -603,6 +621,11 @@
       "id": "88e3",
       "userId": "0",
       "postId": "cd78"
+    },
+    {
+      "id": "41aa",
+      "userId": "0",
+      "postId": "c7cb"
     }
   ]
 }

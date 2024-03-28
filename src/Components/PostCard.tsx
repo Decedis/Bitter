@@ -27,11 +27,8 @@ export const PostCard = ({
   const { trigger: deleteFavoriteTrigger } = useDeleteFavorite();
 
   const [isCommentsCollapsed, setIsCommentsCollapsed] = useState(true);
-  console.log("isCommentsCollapsed: ", isCommentsCollapsed);
 
   const handleToggleComments = () => {
-    console.log("handleToggle clicked");
-
     setIsCommentsCollapsed((prev) => !prev);
   };
 
