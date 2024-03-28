@@ -77,6 +77,18 @@
       "postContent": "I can make comments",
       "createdByID": "0",
       "creationTime": "2024-03-28T07:05:31.016Z"
+    },
+    {
+      "id": "2703",
+      "postContent": "Heartin it",
+      "createdByID": "1",
+      "creationTime": "2024-03-28T19:59:09.110Z"
+    },
+    {
+      "id": "0601",
+      "postContent": "Again",
+      "createdByID": "1",
+      "creationTime": "2024-03-28T20:00:13.451Z"
     }
   ],
   "tags": [
@@ -613,6 +625,12 @@
       "userId": "0",
       "postId": "9473",
       "commentContent": "Holy fuuuuuuuuuuuuuuuuuuuuuuuuuuuuuck"
+    },
+    {
+      "id": "f3f3",
+      "userId": "1",
+      "postId": "9473",
+      "commentContent": "LLike this bruh"
     }
   ],
   "favorites": [
@@ -660,6 +678,33 @@
       "id": "0542",
       "userId": "0",
       "postId": "9473"
+    },
+    {
+      "id": "789d",
+      "userId": "1",
+      "postId": "9473"
+    },
+    {
+      "id": "4ea6",
+      "userId": "1",
+      "postId": "2703"
+    },
+    {
+      "id": "3795",
+      "userId": "1",
+      "postId": "0601"
+    }
+  ],
+  "commentFavorites": [
+    {
+      "id": "13f4",
+      "userId": "1",
+      "commentId": "967b"
+    },
+    {
+      "id": "176e",
+      "userId": "1",
+      "commentId": "f3f3"
     }
   ]
 }
