@@ -36,5 +36,5 @@
 - [ ] Edit posts
 - [x] Render comments
 - [x] Create comments
-- [x] Like comments
+- [ ] Like comments
 - [ ] Hashtag rendering in comments, posts, and search
