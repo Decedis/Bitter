@@ -5,7 +5,10 @@ import { findAuthorName } from "../utils";
 import { PostButton } from "./PostButton";
 import { useContext } from "react";
 import { UserContext } from "../Providers/FakeAuthProvider";
-import { useCreateCommentFavorite } from "../services/mutations";
+import {
+  useCreateCommentFavorite,
+  useDeleteCommentFavorite,
+} from "../services/mutations";
 
 export const CommentCard = ({
   id,
@@ -17,7 +20,7 @@ export const CommentCard = ({
   const commentFavQuery = useCommentFavorites();
   const { user } = useContext(UserContext);
   const { trigger: createCommentFavoriteTrigger } = useCreateCommentFavorite();
-  const { trigger: deleteCommentFavoriteTrigger } = useCreateCommentFavorite();
+  const { trigger: deleteCommentFavoriteTrigger } = useDeleteCommentFavorite();
 
   console.log("I'm not using postID: ", postId);
 

@@ -44,3 +44,4 @@
 - [ ] Refactor backend hooks into a single provider
 - [ ] Update providers and hooks such that they assume a user is present
 - [ ] Create CommentFavorites type and database route
+- [ ] Refactor shared or similar `isHeartActive` code between `PostCard` and `CommentCard` components.
