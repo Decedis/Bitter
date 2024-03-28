@@ -31,11 +31,7 @@ export const CreatePost = () => {
       }
     );
   };
-  //TODO:
-  /*
-  - put new post at the top of the list in the feed 
-  - To do this, i'll need to add a "creationTime" value to the protoPosts, and sort the data array based on creationTime
-  */
+
   return (
     <form
       className="textarea textarea-secondary relative p-0 border-2"

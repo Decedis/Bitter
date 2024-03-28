@@ -133,7 +133,7 @@ export const PostCard = ({
       {comments && (
         <CommentsList
           collapsed={isCommentsCollapsed}
-          postID={id}
+          postId={id}
           commentsList={comments}
         />
       )}

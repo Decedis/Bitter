@@ -6,9 +6,11 @@ import { CreateComment } from "./CreateComment";
 export const CommentsList = ({
   collapsed,
   commentsList,
+  postId,
 }: {
   collapsed: boolean;
   commentsList: Comments[];
+  postId: string;
 }) => {
   const userQuery = useUser();
 
@@ -16,22 +18,20 @@ export const CommentsList = ({
     if (collapsed) {
       return <></>;
     } else if (!collapsed && commentsList.length === 0) {
-      return <CreateComment />;
+      return <CreateComment postId={postId} />;
     } else if (!collapsed && commentsList.length > 0) {
       return (
         <>
           {commentsList.map((commentVal: Comments) => (
-            <div>
-              <div
-                className="bg-blue-800 mb-4 p-2 rounded-md"
-                key={commentVal.id}
-              >
-                <div>@{findAuthorName(commentVal.userId, userQuery)}</div>
-                <div>{commentVal.content}</div>
-              </div>
+            <div
+              className="bg-blue-800 mb-4 p-2 rounded-md"
+              key={commentVal.id}
+            >
+              <div>@{findAuthorName(commentVal.userId, userQuery)}</div>
+              <div>{commentVal.commentContent}</div>
             </div>
           ))}
-          <CreateComment />
+          <CreateComment postId={postId} />
         </>
       );
     }

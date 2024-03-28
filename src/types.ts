@@ -8,7 +8,7 @@ export type Comments = {
   id: number;
   userId: string;
   postId: string;
-  content: string;
+  commentContent: string;
 };
 
 export type Tag = {

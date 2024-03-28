@@ -1,12 +1,28 @@
 import useSWRMutation from "swr/mutation";
-import { useFavorites, usePosts } from "./queries";
-import { createFavorite, createPost, deleteFavorite } from "./api";
+import { useComments, useFavorites, usePosts } from "./queries";
+import {
+  createComment,
+  createFavorite,
+  createPost,
+  deleteFavorite,
+} from "./api";
 
 export const useCreatePosts = () => {
   const { mutate } = usePosts();
   return useSWRMutation("/posts", createPost, {
     onError() {
       console.error("error");
+    },
+    onSuccess: () => {
+      mutate();
+    },
+  });
+};
+export const useCreateComment = () => {
+  const { mutate } = useComments();
+  return useSWRMutation("/comments", createComment, {
+    onError() {
+      console.log("comment not set");
     },
     onSuccess: () => {
       mutate();

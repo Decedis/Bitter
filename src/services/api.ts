@@ -1,4 +1,4 @@
-import { Favorites, ProtoPost } from "../types";
+import { Comments, Favorites, ProtoPost } from "../types";
 import { axiosInstance } from "./fetcher";
 
 export const createPost = async (
@@ -9,6 +9,17 @@ export const createPost = async (
     postContent: arg.postContent,
     createdByID: arg.createdByID,
     creationTime: arg.creationTime,
+  });
+};
+
+export const createComment = async (
+  url: string,
+  { arg }: { arg: Omit<Comments, "id"> }
+) => {
+  await axiosInstance.post(url, {
+    userId: arg.userId,
+    postId: arg.postId,
+    commentContent: arg.commentContent,
   });
 };
 
