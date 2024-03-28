@@ -1,6 +1,5 @@
-import { useUser } from "../services/queries";
 import { Comments } from "../types";
-import { findAuthorName } from "../utils";
+import { CommentCard } from "./CommentCard";
 import { CreateComment } from "./CreateComment";
 
 export const CommentsList = ({
@@ -12,8 +11,6 @@ export const CommentsList = ({
   commentsList: Comments[];
   postId: string;
 }) => {
-  const userQuery = useUser();
-
   const renderComments = () => {
     if (collapsed) {
       return <></>;
@@ -23,13 +20,13 @@ export const CommentsList = ({
       return (
         <>
           {commentsList.map((commentVal: Comments) => (
-            <div
-              className="bg-blue-800 mb-4 p-2 rounded-md"
+            <CommentCard
               key={commentVal.id}
-            >
-              <div>@{findAuthorName(commentVal.userId, userQuery)}</div>
-              <div>{commentVal.commentContent}</div>
-            </div>
+              id={commentVal.id}
+              userId={commentVal.userId}
+              postId={commentVal.postId}
+              commentContent={commentVal.commentContent}
+            />
           ))}
           <CreateComment postId={postId} />
         </>

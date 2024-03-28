@@ -71,6 +71,12 @@
       "postContent": "A new comment",
       "createdByID": "0",
       "creationTime": "2024-03-28T06:53:20.419Z"
+    },
+    {
+      "id": "9473",
+      "postContent": "I can make comments",
+      "createdByID": "0",
+      "creationTime": "2024-03-28T07:05:31.016Z"
     }
   ],
   "tags": [
@@ -601,6 +607,12 @@
       "userId": "0",
       "postId": "b9c1",
       "commentContent": "Holy shit"
+    },
+    {
+      "id": "967b",
+      "userId": "0",
+      "postId": "9473",
+      "commentContent": "Holy fuuuuuuuuuuuuuuuuuuuuuuuuuuuuuck"
     }
   ],
   "favorites": [
@@ -643,6 +655,11 @@
       "id": "1f16",
       "userId": "0",
       "postId": "b9c1"
+    },
+    {
+      "id": "0542",
+      "userId": "0",
+      "postId": "9473"
     }
   ]
 }

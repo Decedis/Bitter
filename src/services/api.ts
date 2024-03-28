@@ -1,4 +1,4 @@
-import { Comments, Favorites, ProtoPost } from "../types";
+import { CommentFavorites, Comments, Favorites, ProtoPost } from "../types";
 import { axiosInstance } from "./fetcher";
 
 export const createPost = async (
@@ -33,6 +33,23 @@ export const createFavorite = async (
   });
 };
 
-export const deleteFavorite = async (url: string, { arg }: { arg: number }) => {
+export const createCommentFavorite = async (
+  url: string,
+  { arg }: { arg: Omit<CommentFavorites, "id"> }
+) => {
+  await axiosInstance.post(url, {
+    userId: arg.userId,
+    commentId: arg.commentId,
+  });
+};
+
+export const deleteFavorite = async (url: string, { arg }: { arg: string }) => {
+  await axiosInstance.delete(`${url}/${arg}`);
+};
+
+export const deleteCommentFavorite = async (
+  url: string,
+  { arg }: { arg: string }
+) => {
   await axiosInstance.delete(`${url}/${arg}`);
 };

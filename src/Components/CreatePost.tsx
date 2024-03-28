@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { UserContext } from "../Providers/FakeAuthProvider";
 import { usePosts } from "../services/queries";
 import { useCreatePosts } from "../services/mutations";
+import { PaperAirplaneIcon } from "@heroicons/react/16/solid";
 
 export const CreatePost = () => {
   //post content
@@ -53,11 +54,13 @@ export const CreatePost = () => {
           setPostDraft(e.target.value)
         }
       />
-      <input
+      <button
         className="btn btn-ghost absolute bottom-2 right-2"
         type="submit"
         disabled={isMutating || postsQuery.isValidating || !user}
-      />
+      >
+        <PaperAirplaneIcon className="w-6 h-6" />
+      </button>
     </form>
   );
 };

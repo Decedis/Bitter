@@ -21,7 +21,7 @@ export const Nav = () => {
   return (
     // <nav className="w-screen flex border-b-2 border-blue-900 p-2 mb-5 bg-slate-700">
     <nav className="navbar bg-neutral text-neutral-content">
-      <h1 className="border-b-2 border-r-2 border-slate-200 text-slate-200 text-center rounded-sm w-60 font-mono text-xl">
+      <h1 className="border-b-2 border-r-2 border-slate-200 text-slate-200 text-center rounded-sm p-4 font-mono text-xl">
         Bitter
       </h1>
       <ul className="menu menu-horizontal px-1 w-full justify-end flex gap-8">

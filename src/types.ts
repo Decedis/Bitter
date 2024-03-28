@@ -5,10 +5,16 @@ export interface User {
 }
 
 export type Comments = {
-  id: number;
+  id: string; //TODO: the app is broken. Maybe return this back to number
   userId: string;
   postId: string;
   commentContent: string;
+};
+
+export type CommentFavorites = {
+  id: string;
+  userId: string;
+  commentId: string;
 };
 
 export type Tag = {
@@ -25,8 +31,7 @@ export type ProtoPost = {
 };
 
 export type Post = {
-  id: string; //TODO return to Number in real database.
-  //createdBy: string; //change to User down the line
+  id: string;
   createdByID: string;
   postContent: string;
   creationTime: Date;
@@ -36,7 +41,7 @@ export type Post = {
 };
 
 export type Favorites = {
-  id: number;
+  id: string;
   userId: string;
   postId: string;
 };

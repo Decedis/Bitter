@@ -46,6 +46,7 @@ export const PostCard = ({
     }
   };
 
+  //TODO: this findFavoriteID and the one in CommentCard might be able to be refactored into a single function
   const findFavoriteID = (postID: string, userID: string) => {
     const favID = favQuery.data?.find((favorite) => {
       return postID === favorite.postId && userID === favorite.userId;

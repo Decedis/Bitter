@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { useComments } from "../services/queries";
 import { UserContext } from "../Providers/FakeAuthProvider";
 import { useCreateComment } from "../services/mutations";
+import { PaperAirplaneIcon } from "@heroicons/react/16/solid";
 
 export const CreateComment = (postId: { postId: string }) => {
   const commentsQuery = useComments();
@@ -36,7 +37,7 @@ export const CreateComment = (postId: { postId: string }) => {
     >
       <label htmlFor="createComment"></label>
       <input
-        className="input input-bordered w-full h-40"
+        className="input input-bordered w-full h-20"
         type="text"
         name="createComment"
         id="createComment"
@@ -46,11 +47,13 @@ export const CreateComment = (postId: { postId: string }) => {
           setCommentDraft(e.target.value);
         }}
       />
-      <input
+      <button
         className="btn btn-ghost absolute bottom-2 right-2"
         type="submit"
         disabled={isMutating || commentsQuery.isValidating || !user}
-      />
+      >
+        <PaperAirplaneIcon className="w-6 h-6" />
+      </button>
     </form>
   );
 };

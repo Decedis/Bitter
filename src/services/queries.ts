@@ -1,5 +1,12 @@
 import useSWR from "swr";
-import { Comments, Favorites, Post, Tag, User } from "../types";
+import {
+  CommentFavorites,
+  Comments,
+  Favorites,
+  Post,
+  Tag,
+  User,
+} from "../types";
 
 export const useUser = () => {
   return useSWR<User[]>("/users");
@@ -18,6 +25,10 @@ export const useFavorites = () => {
 
 export const useComments = () => {
   return useSWR<Comments[]>("/comments");
+};
+
+export const useCommentFavorites = () => {
+  return useSWR<CommentFavorites[]>("/commentFavorites");
 };
 
 export const useTags = () => {

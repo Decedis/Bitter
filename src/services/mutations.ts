@@ -2,8 +2,10 @@ import useSWRMutation from "swr/mutation";
 import { useComments, useFavorites, usePosts } from "./queries";
 import {
   createComment,
+  createCommentFavorite,
   createFavorite,
   createPost,
+  deleteCommentFavorite,
   deleteFavorite,
 } from "./api";
 
@@ -35,6 +37,30 @@ export const useCreateFavorite = () => {
   return useSWRMutation("/favorites", createFavorite, {
     onError() {
       console.log("favorite not set");
+    },
+    onSuccess: () => {
+      mutate();
+    },
+  });
+};
+
+export const useCreateCommentFavorite = () => {
+  const { mutate } = useComments();
+  return useSWRMutation("/commentFavorites", createCommentFavorite, {
+    onError() {
+      console.log("comment favorite not set");
+    },
+    onSuccess: () => {
+      mutate();
+    },
+  });
+};
+
+export const useDeleteCommentFavorite = () => {
+  const { mutate } = useComments();
+  return useSWRMutation("/commentFavorites", deleteCommentFavorite, {
+    onError() {
+      console.log("comment favorite not deleted");
     },
     onSuccess: () => {
       mutate();
