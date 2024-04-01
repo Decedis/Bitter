@@ -12,6 +12,7 @@ import { useFavorites, useUser } from "../services/queries";
 import { useCreateFavorite, useDeleteFavorite } from "../services/mutations";
 import { CommentsList } from "./CommentsList";
 import { findAuthorName } from "../utils";
+import { useDeletePosts } from "../services/mutations";
 
 export const PostCard = ({
   createdByID,
@@ -25,6 +26,7 @@ export const PostCard = ({
   const { user } = useContext(UserContext);
   const { trigger: createFavoriteTrigger } = useCreateFavorite();
   const { trigger: deleteFavoriteTrigger } = useDeleteFavorite();
+  const { trigger: deletePostTrigger } = useDeletePosts();
 
   const [isCommentsCollapsed, setIsCommentsCollapsed] = useState(true);
 
@@ -86,6 +88,8 @@ export const PostCard = ({
     }
   };
 
+  const deleteButtonCSS = user ? "bg-blue" : "opacity-0";
+
   return (
     <div
       key={id}
@@ -101,6 +105,11 @@ export const PostCard = ({
           <div className="card-title ">
             {findAuthorName(createdByID, userQuery)}
           </div>
+        </div>
+        <div className="deletePost">
+          <button className={deleteButtonCSS} onClick={() => deletePost}>
+            Delete
+          </button>
         </div>
       </h3>
       <div className="postContent text-white w-full h-40">{postContent}</div>

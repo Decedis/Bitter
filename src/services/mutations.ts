@@ -7,6 +7,7 @@ import {
   createPost,
   deleteCommentFavorite,
   deleteFavorite,
+  deletePost,
 } from "./api";
 
 export const useCreatePosts = () => {
@@ -20,6 +21,19 @@ export const useCreatePosts = () => {
     },
   });
 };
+
+export const useDeletePosts = () => {
+  const { mutate } = usePosts();
+  return useSWRMutation("/posts", deletePost, {
+    onError() {
+      console.error("error");
+    },
+    onSuccess: () => {
+      mutate();
+    },
+  });
+};
+
 export const useCreateComment = () => {
   const { mutate } = useComments();
   return useSWRMutation("/comments", createComment, {
