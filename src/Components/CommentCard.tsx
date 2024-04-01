@@ -41,6 +41,13 @@ export const CommentCard = ({
     }
   };
 
+  const cardLikes = (localId: string, commentFavQuery: CommentFavorites[]) => {
+    const newArr = (commentFavQuery ?? []).filter((fav) => {
+      return fav.commentId === localId;
+    });
+    return newArr;
+  };
+
   const findFavoriteID = (commentID: string, userID: string) => {
     const favID = commentFavQuery.data?.find((favorite) => {
       return commentID === favorite.commentId && userID === favorite.userId;
@@ -84,7 +91,7 @@ export const CommentCard = ({
     <div className="bg-blue-800 mb-4 p-2 rounded-md" key={id}>
       <div>@{findAuthorName(userId, userQuery)}</div>
       <div>{commentContent}</div>
-      <div className="flex">
+      <div className="flex bg-blue-500 rounded-md m-1 mt-4 p-1 justify-end">
         <PostButton
           icon={
             <HeartIcon
@@ -98,7 +105,9 @@ export const CommentCard = ({
           onClickEvent={() => {
             return handleCreateCommentFavorite();
           }}
-          //   value={likes}
+          value={
+            cardLikes(id, commentFavQuery.data as CommentFavorites[]).length
+          }
         />
       </div>
     </div>

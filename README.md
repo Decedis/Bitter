@@ -36,7 +36,7 @@
 - [ ] Edit posts
 - [x] Render comments
 - [x] Create comments
-- [ ] Like comments
+- [x] Like comments
 - [ ] Hashtag rendering in comments, posts, and search
 
 ## Code TODO
@@ -45,3 +45,4 @@
 - [ ] Update providers and hooks such that they assume a user is present
 - [ ] Create CommentFavorites type and database route
 - [ ] Refactor shared or similar `isHeartActive` code between `PostCard` and `CommentCard` components.
+- [ ] Update user state to set the state as the local storage value instead of wiping it every time the app refreshes. If this is done, then the user value needs to be validated against the database. Username and the Password.

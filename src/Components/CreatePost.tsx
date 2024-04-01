@@ -35,7 +35,7 @@ export const CreatePost = () => {
 
   return (
     <form
-      className="textarea textarea-secondary relative p-0 border-2"
+      className="textarea textarea-secondary relative p-0 border-2 mb-5"
       onSubmit={(e) => {
         e.preventDefault();
         handleCreatePost();
