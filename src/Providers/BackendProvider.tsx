@@ -10,6 +10,7 @@ export const PostsProvider = ({ children }: { children: ReactNode }) => {
     <SWRConfig
       value={{
         fetcher,
+
         // refreshInterval: 3000,
         // revalidateIfStale: false,
         // revalidateOnFocus: true,

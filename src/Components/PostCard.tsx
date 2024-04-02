@@ -8,7 +8,7 @@ import {
 import { PostButton } from "./PostButton";
 import { useContext, useState } from "react";
 import { UserContext } from "../Providers/FakeAuthProvider";
-import { useFavorites, useUser } from "../services/queries";
+import { useFavorites, usePosts, useUser } from "../services/queries";
 import { useCreateFavorite, useDeleteFavorite } from "../services/mutations";
 import { CommentsList } from "./CommentsList";
 import { findAuthorName } from "../utils";
@@ -23,6 +23,7 @@ export const PostCard = ({
 }: Post) => {
   const favQuery = useFavorites();
   const userQuery = useUser();
+  const postsQuery = usePosts();
   const { user } = useContext(UserContext);
   const { trigger: createFavoriteTrigger } = useCreateFavorite();
   const { trigger: deleteFavoriteTrigger } = useDeleteFavorite();
@@ -88,15 +89,36 @@ export const PostCard = ({
     }
   };
 
-  const deleteButtonCSS = user ? "bg-blue" : "opacity-0";
+  const deleteButtonCSS = user
+    ? "bg-blue-500 rounded-full w-8 h-8 self-center"
+    : "opacity-0";
+
+  const deleteButton =
+    user?.id === createdByID ? (
+      <button
+        className={deleteButtonCSS}
+        onClick={() => {
+          deletePostTrigger(id, {
+            optimisticData:
+              postsQuery.data &&
+              postsQuery.data.filter((post) => post.id !== id),
+            rollbackOnError: true,
+          });
+        }}
+      >
+        X
+      </button>
+    ) : (
+      <></>
+    );
 
   return (
     <div
       key={id}
       className="card w-96 rounded-sm bg-neutral text-primary-content p-2 text-white "
     >
-      <h3 className=" pb-1 ">
-        <div className="flex flex-row gap-2 border-b-2 border-white text-white ">
+      <h3 className="flex flex-row gap-2 border-b-2 border-white text-white justify-between pb-1">
+        <div className="flex flex-row gap-2">
           <div className="avatar">
             <div className="w-12 rounded-xl">
               <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
@@ -106,11 +128,7 @@ export const PostCard = ({
             {findAuthorName(createdByID, userQuery)}
           </div>
         </div>
-        <div className="deletePost">
-          <button className={deleteButtonCSS} onClick={() => deletePost}>
-            Delete
-          </button>
-        </div>
+        {deleteButton}
       </h3>
       <div className="postContent text-white w-full h-40">{postContent}</div>
 

@@ -5,6 +5,7 @@ import { CreatePost } from "./CreatePost";
 
 export const Feed = () => {
   const postsQuery = usePosts();
+
   const favQuery = useFavorites();
   const commentsQuery = useComments();
 

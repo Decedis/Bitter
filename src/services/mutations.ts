@@ -10,6 +10,8 @@ import {
   deletePost,
 } from "./api";
 
+//TODO: create a useMutation hook
+
 export const useCreatePosts = () => {
   const { mutate } = usePosts();
   return useSWRMutation("/posts", createPost, {
