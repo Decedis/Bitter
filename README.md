@@ -32,12 +32,14 @@
 - [x] Like posts
 - [ ] Bookmark posts
 - [ ] Bookmark route
-- [ ] Delete posts
+- [x] Delete posts
 - [ ] Edit posts
 - [x] Render comments
 - [x] Create comments
 - [x] Like comments
 - [ ] Hashtag rendering in comments, posts, and search
+- [x] Profile route
+- [ ] Profile view with posts and comments
 
 ## Code TODO
 

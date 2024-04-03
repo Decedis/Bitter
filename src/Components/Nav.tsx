@@ -1,7 +1,6 @@
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { UserContext } from "../Providers/FakeAuthProvider";
 import { useContext, useEffect, useState } from "react";
-import "../assets/citrus-slice.svg";
 
 export const Nav = () => {
   const { user, setUser } = useContext(UserContext);
@@ -19,16 +18,15 @@ export const Nav = () => {
   };
 
   return (
-    // <nav className="w-screen flex border-b-2 border-blue-900 p-2 mb-5 bg-slate-700">
     <nav className="navbar bg-neutral text-neutral-content">
       <h1 className="border-b-2 border-r-2 border-slate-200 text-slate-200 text-center rounded-sm p-4 font-mono text-xl">
         Bitter
       </h1>
       <ul className="menu menu-horizontal px-1 w-full justify-end flex gap-8">
         <li>
-          <button className="btn">
-            <Link to="/">Home</Link>
-          </button>
+          <Link className="btn" to="/">
+            Home
+          </Link>
         </li>
         <li>
           {user ? (
@@ -36,9 +34,9 @@ export const Nav = () => {
               {buttonText}
             </button>
           ) : (
-            <button className="btn">
-              <Link to="/login">{buttonText}</Link>
-            </button>
+            <Link className="btn" to="/login">
+              {buttonText}
+            </Link>
           )}
         </li>
         <div className="dropdown dropdown-end">
@@ -56,19 +54,18 @@ export const Nav = () => {
           </div>
           <ul
             tabIndex={0}
-            className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+            className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52 text-black"
           >
             <li>
-              <a className="justify-between">
+              <Link className="justify-between" to="/profile">
                 Profile
-                <span className="badge">New</span>
-              </a>
+              </Link>
             </li>
             <li>
               <a>Settings</a>
             </li>
             <li>
-              <a>Bookmarks</a>
+              <Link to="/bookmarks">Bookmarks</Link>
             </li>
             <li>
               <a>Logout</a>
@@ -76,7 +73,6 @@ export const Nav = () => {
           </ul>
         </div>
       </ul>
-
       <Outlet />
     </nav>
   );
