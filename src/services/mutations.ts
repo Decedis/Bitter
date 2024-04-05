@@ -8,6 +8,7 @@ import {
   deleteCommentFavorite,
   deleteFavorite,
   deletePost,
+  patchPost,
 } from "./api";
 
 //TODO: create a useMutation hook
@@ -29,6 +30,18 @@ export const useDeletePosts = () => {
   return useSWRMutation("/posts", deletePost, {
     onError() {
       console.error("error");
+    },
+    onSuccess: () => {
+      mutate();
+    },
+  });
+};
+
+export const usePatchPost = () => {
+  const { mutate } = usePosts();
+  return useSWRMutation("/posts", patchPost, {
+    onError() {
+      console.log("error");
     },
     onSuccess: () => {
       mutate();

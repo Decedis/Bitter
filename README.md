@@ -48,3 +48,12 @@
 - [ ] Create CommentFavorites type and database route
 - [ ] Refactor shared or similar `isHeartActive` code between `PostCard` and `CommentCard` components.
 - [ ] Update user state to set the state as the local storage value instead of wiping it every time the app refreshes. If this is done, then the user value needs to be validated against the database. Username and the Password.
+
+## Version 2 TODO
+
+- [ ] Repost functionality
+- [ ] Redesign
+- [ ] Search + search results (store in URL state)
+- [ ] Pagination (store in URL state)
+- [ ] Image upload + custom user profile pictures
+- [ ] Animations

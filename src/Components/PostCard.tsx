@@ -4,15 +4,21 @@ import {
   HeartIcon,
   ChatBubbleOvalLeftIcon,
   BookmarkIcon,
+  EllipsisVerticalIcon,
 } from "@heroicons/react/24/outline";
 import { PostButton } from "./PostButton";
 import { useContext, useState } from "react";
 import { UserContext } from "../Providers/FakeAuthProvider";
 import { useFavorites, usePosts, useUser } from "../services/queries";
-import { useCreateFavorite, useDeleteFavorite } from "../services/mutations";
+import {
+  useCreateFavorite,
+  useDeleteFavorite,
+  usePatchPost,
+} from "../services/mutations";
 import { CommentsList } from "./CommentsList";
 import { findAuthorName } from "../utils";
 import { useDeletePosts } from "../services/mutations";
+import { PatchPostModal } from "./PatchPostModal";
 
 export const PostCard = ({
   createdByID,
@@ -21,6 +27,7 @@ export const PostCard = ({
   likes,
   id,
 }: Post) => {
+  const [isEditPost, setIsEditPost] = useState(false);
   const favQuery = useFavorites();
   const userQuery = useUser();
   const postsQuery = usePosts();
@@ -89,14 +96,13 @@ export const PostCard = ({
     }
   };
 
-  const deleteButtonCSS = user
-    ? "bg-blue-500 rounded-full w-8 h-8 self-center"
-    : "opacity-0";
+  // const deleteButtonCSS = user
+  //   ? "bg-blue-500 rounded-full w-8 h-8 self-center"
+  //   : "opacity-0";
 
   const deleteButton =
     user?.id === createdByID ? (
       <button
-        className={deleteButtonCSS}
         onClick={() => {
           deletePostTrigger(id, {
             optimisticData:
@@ -106,8 +112,32 @@ export const PostCard = ({
           });
         }}
       >
-        X
+        Delete
       </button>
+    ) : (
+      <></>
+    );
+
+  const postDropDownMenu =
+    user?.id === createdByID ? (
+      <div className="dropdown dropdown-right">
+        <div tabIndex={0}>
+          <EllipsisVerticalIcon className="w-5 h-5" />
+        </div>
+        <ul
+          tabIndex={0}
+          className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+        >
+          <li>
+            <a>{deleteButton}</a>
+          </li>
+          <li>
+            <button className="btn" onClick={() => setIsEditPost(true)}>
+              Edit
+            </button>
+          </li>
+        </ul>
+      </div>
     ) : (
       <></>
     );
@@ -128,9 +158,15 @@ export const PostCard = ({
             {findAuthorName(createdByID, userQuery)}
           </div>
         </div>
-        {deleteButton}
+        {postDropDownMenu}
       </h3>
-      <div className="postContent text-white w-full h-40">{postContent}</div>
+      <div className="postContent text-white w-full h-40">
+        {isEditPost ? (
+          <PatchPostModal defaultValue={postContent} />
+        ) : (
+          postContent
+        )}
+      </div>
 
       <div className="flex justify-between self-center w-full text-white mb-4">
         <PostButton
@@ -153,7 +189,7 @@ export const PostCard = ({
           }}
           value={likes}
         />
-        <PostButton icon={<BookmarkIcon />} value={0} />
+        <PostButton icon={<BookmarkIcon />} />
       </div>
       {comments && (
         <CommentsList
