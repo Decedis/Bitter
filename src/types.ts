@@ -24,7 +24,7 @@ export type Tag = {
 };
 
 export type ProtoPost = {
-  id: string; //TODO return to Number in real database.
+  id: string;
   createdByID: string;
   postContent: string;
   creationTime: Date;
