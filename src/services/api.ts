@@ -16,8 +16,13 @@ export const deletePost = async (url: string, { arg }: { arg: string }) => {
   await axiosInstance.delete(`${url}/${arg}`);
 };
 
-export const patchPost = async (url: string, { arg }: { arg: string }) => {
-  await axiosInstance.patch(`${url}/${arg}`);
+export const patchPost = async (
+  url: string,
+  { arg }: { arg: { id: string; postContent: string } }
+) => {
+  await axiosInstance.patch(`${url}/${arg.id}`, {
+    postContent: arg.postContent,
+  });
 };
 
 export const createComment = async (

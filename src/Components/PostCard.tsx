@@ -19,6 +19,7 @@ import { CommentsList } from "./CommentsList";
 import { findAuthorName } from "../utils";
 import { useDeletePosts } from "../services/mutations";
 import { PatchPostModal } from "./PatchPostModal";
+import { PostBar } from "./PostBar";
 
 export const PostCard = ({
   createdByID,
@@ -28,73 +29,14 @@ export const PostCard = ({
   id,
 }: Post) => {
   const [isEditPost, setIsEditPost] = useState(false);
-  const favQuery = useFavorites();
+
   const userQuery = useUser();
   const postsQuery = usePosts();
   const { user } = useContext(UserContext);
-  const { trigger: createFavoriteTrigger } = useCreateFavorite();
-  const { trigger: deleteFavoriteTrigger } = useDeleteFavorite();
+
   const { trigger: deletePostTrigger } = useDeletePosts();
 
-  const [isCommentsCollapsed, setIsCommentsCollapsed] = useState(true);
-
-  const handleToggleComments = () => {
-    setIsCommentsCollapsed((prev) => !prev);
-  };
-
-  const isHeartActive = (localId: string, favQuery: Favorites[]) => {
-    const newArr = (favQuery ?? []).filter((fav) => {
-      return fav.postId === localId;
-    });
-    for (let i = 0; i < newArr.length; i++) {
-      if (user?.id === newArr[i].userId) {
-        return true;
-      }
-    }
-    if (!user) {
-      return false;
-    }
-  };
-
   //TODO: this findFavoriteID and the one in CommentCard might be able to be refactored into a single function
-  const findFavoriteID = (postID: string, userID: string) => {
-    const favID = favQuery.data?.find((favorite) => {
-      return postID === favorite.postId && userID === favorite.userId;
-    });
-    return favID;
-  };
-
-  const handleFavoriteCreation = async () => {
-    if (user) {
-      if (isHeartActive(id, favQuery.data as Favorites[])) {
-        const favoriteID = findFavoriteID(id, user?.id);
-        if (favoriteID && favoriteID.id) {
-          deleteFavoriteTrigger(favoriteID.id, {
-            optimisticData:
-              favQuery.data &&
-              favQuery.data.filter((fav) => fav.id !== favoriteID.id),
-            rollbackOnError: true,
-          });
-        }
-      } else {
-        createFavoriteTrigger(
-          {
-            postId: id,
-            userId: user?.id,
-          },
-          {
-            optimisticData: favQuery.data && [
-              ...favQuery.data,
-              { postId: id, userId: user?.id },
-            ],
-            rollbackOnError: true,
-          }
-        );
-      }
-    } else {
-      console.log("No user found");
-    }
-  };
 
   // const deleteButtonCSS = user
   //   ? "bg-blue-500 rounded-full w-8 h-8 self-center"
@@ -162,41 +104,19 @@ export const PostCard = ({
       </h3>
       <div className="postContent text-white w-full h-40">
         {isEditPost ? (
-          <PatchPostModal defaultValue={postContent} />
+          <PatchPostModal
+            defaultValue={postContent}
+            id={id}
+            closePatch={setIsEditPost}
+          />
         ) : (
           postContent
         )}
       </div>
-
-      <div className="flex justify-between self-center w-full text-white mb-4">
-        <PostButton
-          icon={<ChatBubbleOvalLeftIcon />}
-          value={comments.length}
-          onClickEvent={handleToggleComments}
-        />
-        <PostButton
-          icon={
-            <HeartIcon
-              className={
-                isHeartActive(id, favQuery.data as Favorites[])
-                  ? "fill-red-400"
-                  : ""
-              }
-            />
-          }
-          onClickEvent={() => {
-            return handleFavoriteCreation();
-          }}
-          value={likes}
-        />
-        <PostButton icon={<BookmarkIcon />} />
-      </div>
-      {comments && (
-        <CommentsList
-          collapsed={isCommentsCollapsed}
-          postId={id}
-          commentsList={comments}
-        />
+      {isEditPost ? (
+        <></>
+      ) : (
+        <PostBar comments={comments} likes={likes} id={id} />
       )}
     </div>
   );

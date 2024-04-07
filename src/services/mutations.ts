@@ -40,8 +40,9 @@ export const useDeletePosts = () => {
 export const usePatchPost = () => {
   const { mutate } = usePosts();
   return useSWRMutation("/posts", patchPost, {
-    onError() {
+    onError(err) {
       console.log("error");
+      console.log(err);
     },
     onSuccess: () => {
       mutate();
