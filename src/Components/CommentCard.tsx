@@ -1,14 +1,15 @@
-import { HeartIcon } from "@heroicons/react/24/outline";
+import { EllipsisVerticalIcon, HeartIcon } from "@heroicons/react/24/outline";
 import { useCommentFavorites, useUser } from "../services/queries";
 import { CommentFavorites, Comments } from "../types";
 import { findAuthorName } from "../utils";
 import { PostButton } from "./PostButton";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { UserContext } from "../Providers/FakeAuthProvider";
 import {
   useCreateCommentFavorite,
   useDeleteCommentFavorite,
 } from "../services/mutations";
+import { PatchComment } from "./PatchComment";
 
 export const CommentCard = ({
   id,
@@ -16,6 +17,8 @@ export const CommentCard = ({
   commentContent,
   postId,
 }: Comments) => {
+  const [isEditComment, setIsEditComment] = useState(false);
+
   const userQuery = useUser();
   const commentFavQuery = useCommentFavorites();
   const { user } = useContext(UserContext);
@@ -23,6 +26,27 @@ export const CommentCard = ({
   const { trigger: deleteCommentFavoriteTrigger } = useDeleteCommentFavorite();
 
   console.log("I'm not using postID: ", postId);
+  const commentDropDownMenu =
+    user?.id === userId ? (
+      <div className="dropdown dropdown-right">
+        <div tabIndex={0}>
+          <EllipsisVerticalIcon className="w-5 h-5" />
+        </div>
+        <ul
+          tabIndex={0}
+          className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+        >
+          <li>Delete not implemented yet</li>
+          <li>
+            <button className="btn" onClick={() => setIsEditComment(true)}>
+              Edit
+            </button>
+          </li>
+        </ul>
+      </div>
+    ) : (
+      <></>
+    );
 
   const isHeartActive = (
     localId: string,
@@ -89,27 +113,43 @@ export const CommentCard = ({
 
   return (
     <div className="bg-blue-800 mb-4 p-2 rounded-md" key={id}>
-      <div>@{findAuthorName(userId, userQuery)}</div>
-      <div>{commentContent}</div>
-      <div className="flex bg-blue-500 rounded-md m-1 mt-4 p-1 justify-end">
-        <PostButton
-          icon={
-            <HeartIcon
-              className={
-                isHeartActive(id, commentFavQuery.data as CommentFavorites[])
-                  ? "fill-red-400"
-                  : ""
+      {isEditComment ? (
+        <PatchComment
+          closePatch={setIsEditComment}
+          id={id}
+          defaultValue={commentContent}
+        />
+      ) : (
+        <>
+          <div className="flex">
+            <div>@{findAuthorName(userId, userQuery)}</div>
+            {commentDropDownMenu}
+          </div>
+          <div>{commentContent}</div>
+          <div className="flex bg-blue-500 rounded-md m-1 mt-4 p-1 justify-end">
+            <PostButton
+              icon={
+                <HeartIcon
+                  className={
+                    isHeartActive(
+                      id,
+                      commentFavQuery.data as CommentFavorites[]
+                    )
+                      ? "fill-red-400"
+                      : ""
+                  }
+                />
+              }
+              onClickEvent={() => {
+                return handleCreateCommentFavorite();
+              }}
+              value={
+                cardLikes(id, commentFavQuery.data as CommentFavorites[]).length
               }
             />
-          }
-          onClickEvent={() => {
-            return handleCreateCommentFavorite();
-          }}
-          value={
-            cardLikes(id, commentFavQuery.data as CommentFavorites[]).length
-          }
-        />
-      </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };
