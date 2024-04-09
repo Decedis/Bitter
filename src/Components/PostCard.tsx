@@ -1,24 +1,13 @@
-import { Favorites, Post } from "../types";
+import { Post } from "../types";
 
-import {
-  HeartIcon,
-  ChatBubbleOvalLeftIcon,
-  BookmarkIcon,
-  EllipsisVerticalIcon,
-} from "@heroicons/react/24/outline";
-import { PostButton } from "./PostButton";
+import { EllipsisVerticalIcon } from "@heroicons/react/24/outline";
 import { useContext, useState } from "react";
 import { UserContext } from "../Providers/FakeAuthProvider";
-import { useFavorites, usePosts, useUser } from "../services/queries";
-import {
-  useCreateFavorite,
-  useDeleteFavorite,
-  usePatchPost,
-} from "../services/mutations";
-import { CommentsList } from "./CommentsList";
+import { usePosts, useUser } from "../services/queries";
+
 import { findAuthorName } from "../utils";
 import { useDeletePosts } from "../services/mutations";
-import { PatchPostModal } from "./PatchPostModal";
+import { PatchPost } from "./PatchPost";
 import { PostBar } from "./PostBar";
 
 export const PostCard = ({
@@ -104,7 +93,7 @@ export const PostCard = ({
       </h3>
       <div className="postContent text-white w-full h-40">
         {isEditPost ? (
-          <PatchPostModal
+          <PatchPost
             defaultValue={postContent}
             id={id}
             closePatch={setIsEditPost}

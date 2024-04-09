@@ -36,6 +36,15 @@ export const createComment = async (
   });
 };
 
+export const patchComment = async (
+  url: string,
+  { arg }: { arg: { id: string; commentContent: string } }
+) => {
+  await axiosInstance.patch(`${url}/${arg.id}`, {
+    commentContent: arg.commentContent,
+  });
+};
+
 export const createFavorite = async (
   url: string,
   { arg }: { arg: Omit<Favorites, "id"> }

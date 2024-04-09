@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { usePatchPost } from "../services/mutations";
 import { usePosts } from "../services/queries";
 
-export const PatchPostModal = ({
+export const PatchPost = ({
   defaultValue,
   closePatch,
   id,

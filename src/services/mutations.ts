@@ -8,6 +8,7 @@ import {
   deleteCommentFavorite,
   deleteFavorite,
   deletePost,
+  patchComment,
   patchPost,
 } from "./api";
 
@@ -53,6 +54,18 @@ export const usePatchPost = () => {
 export const useCreateComment = () => {
   const { mutate } = useComments();
   return useSWRMutation("/comments", createComment, {
+    onError() {
+      console.log("comment not set");
+    },
+    onSuccess: () => {
+      mutate();
+    },
+  });
+};
+
+export const usePatchComment = () => {
+  const { mutate } = useComments();
+  return useSWRMutation("/comments", patchComment, {
     onError() {
       console.log("comment not set");
     },
