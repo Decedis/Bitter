@@ -5,6 +5,7 @@ import {
   createCommentFavorite,
   createFavorite,
   createPost,
+  deleteComment,
   deleteCommentFavorite,
   deleteFavorite,
   deletePost,
@@ -68,6 +69,18 @@ export const usePatchComment = () => {
   return useSWRMutation("/comments", patchComment, {
     onError() {
       console.log("comment not set");
+    },
+    onSuccess: () => {
+      mutate();
+    },
+  });
+};
+
+export const useDeleteComment = () => {
+  const { mutate } = useComments();
+  return useSWRMutation("/comments", deleteComment, {
+    onError() {
+      console.log("comment not deleted");
     },
     onSuccess: () => {
       mutate();

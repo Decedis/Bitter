@@ -1,5 +1,5 @@
 import { EllipsisVerticalIcon, HeartIcon } from "@heroicons/react/24/outline";
-import { useCommentFavorites, useUser } from "../services/queries";
+import { useCommentFavorites, useComments, useUser } from "../services/queries";
 import { CommentFavorites, Comments } from "../types";
 import { findAuthorName } from "../utils";
 import { PostButton } from "./PostButton";
@@ -7,6 +7,7 @@ import { useContext, useState } from "react";
 import { UserContext } from "../Providers/FakeAuthProvider";
 import {
   useCreateCommentFavorite,
+  useDeleteComment,
   useDeleteCommentFavorite,
 } from "../services/mutations";
 import { PatchComment } from "./PatchComment";
@@ -20,12 +21,33 @@ export const CommentCard = ({
   const [isEditComment, setIsEditComment] = useState(false);
 
   const userQuery = useUser();
+  const commentsQuery = useComments();
   const commentFavQuery = useCommentFavorites();
   const { user } = useContext(UserContext);
   const { trigger: createCommentFavoriteTrigger } = useCreateCommentFavorite();
   const { trigger: deleteCommentFavoriteTrigger } = useDeleteCommentFavorite();
+  const { trigger: deleteCommentsTrigger } = useDeleteComment();
 
   console.log("I'm not using postID: ", postId);
+
+  const deleteButton =
+    user?.id === userId ? (
+      <button
+        onClick={() => {
+          deleteCommentsTrigger(id, {
+            optimisticData:
+              commentsQuery.data &&
+              commentsQuery.data.filter((post) => post.id !== id),
+            rollbackOnError: true,
+          });
+        }}
+      >
+        Delete
+      </button>
+    ) : (
+      <></>
+    );
+
   const commentDropDownMenu =
     user?.id === userId ? (
       <div className="dropdown dropdown-right">
@@ -36,7 +58,7 @@ export const CommentCard = ({
           tabIndex={0}
           className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
         >
-          <li>Delete not implemented yet</li>
+          <li>{deleteButton}</li>
           <li>
             <button className="btn" onClick={() => setIsEditComment(true)}>
               Edit
@@ -112,7 +134,7 @@ export const CommentCard = ({
   };
 
   return (
-    <div className="bg-blue-800 mb-4 p-2 rounded-md" key={id}>
+    <div className="bg-blue-800 mb-4 p-2 rounded-md h-32" key={id}>
       {isEditComment ? (
         <PatchComment
           closePatch={setIsEditComment}
@@ -121,7 +143,7 @@ export const CommentCard = ({
         />
       ) : (
         <>
-          <div className="flex">
+          <div className="flex justify-between">
             <div>@{findAuthorName(userId, userQuery)}</div>
             {commentDropDownMenu}
           </div>

@@ -38,6 +38,7 @@ export const PatchComment = ({
 
   return (
     <form
+      className="m-w-full min-h-full min-w-full"
       key={id}
       onSubmit={(e) => {
         e.preventDefault();
@@ -48,7 +49,7 @@ export const PatchComment = ({
     >
       <label htmlFor="patchComment"></label>
       <input
-        className="flex bg-blue-500 rounded-md m-1 mt-4 p-1 justify-end"
+        className="flex bg-blue-500 rounded-md m-1 mt-4 p-1 justify-end h-full w-full"
         type="text"
         name="patchComment"
         id="patchComment"
@@ -57,7 +58,7 @@ export const PatchComment = ({
           setPatch(e.target.value);
         }}
       />
-      <button className="btn btn-ghost absolute bottom-2 right-2" type="submit">
+      <button className="btn btn-ghost relative left-72 " type="submit">
         <PaperAirplaneIcon className="w-12 h-12 text-gray-500" />
       </button>
     </form>

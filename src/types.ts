@@ -45,3 +45,9 @@ export type Favorites = {
   userId: string;
   postId: string;
 };
+
+export type Bookmark = {
+  id: string;
+  userId: string;
+  postId: string;
+};

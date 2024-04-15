@@ -33,9 +33,10 @@
 - [ ] Bookmark posts
 - [ ] Bookmark route
 - [x] Delete posts
-- [ ] Edit posts
+- [x] Edit posts
 - [x] Render comments
 - [x] Create comments
+- [x] Edit comments
 - [x] Like comments
 - [ ] Hashtag rendering in comments, posts, and search
 - [x] Profile route
@@ -48,8 +49,12 @@
 - [ ] Create CommentFavorites type and database route
 - [ ] Refactor shared or similar `isHeartActive` code between `PostCard` and `CommentCard` components.
 - [ ] Update user state to set the state as the local storage value instead of wiping it every time the app refreshes. If this is done, then the user value needs to be validated against the database. Username and the Password.
+- [ ] Delete parent-less data points on the backend. EX: favorites continue to exist even if the parent post or parent comment no longer exists.
+- [ ] Correct UI bugs
+  - [ ] Form vertical height on patch components
+  - [ ] Height on text components
 
-## Version 2 TODO
+## Version 2 Feature TODO
 
 - [ ] Repost functionality
 - [ ] Redesign
@@ -57,3 +62,6 @@
 - [ ] Pagination (store in URL state)
 - [ ] Image upload + custom user profile pictures
 - [ ] Animations
+- [ ] Notifications
+- [ ] Implement Zod
+- [ ] Implement DB

@@ -5,6 +5,9 @@ export default {
     extend: {},
   },
   //plugins: [],
+  daisyui: {
+    themes: ["dark"], // enable only the dark theme
+  },
 
   plugins: [require("daisyui")],
 };

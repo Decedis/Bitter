@@ -55,6 +55,10 @@ export const createFavorite = async (
   });
 };
 
+export const deleteComment = async (url: string, { arg }: { arg: string }) => {
+  await axiosInstance.delete(`${url}/${arg}`);
+};
+
 export const createCommentFavorite = async (
   url: string,
   { arg }: { arg: Omit<CommentFavorites, "id"> }

@@ -59,9 +59,7 @@ export const PostCard = ({
           tabIndex={0}
           className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
         >
-          <li>
-            <a>{deleteButton}</a>
-          </li>
+          <li>{deleteButton}</li>
           <li>
             <button className="btn" onClick={() => setIsEditPost(true)}>
               Edit
