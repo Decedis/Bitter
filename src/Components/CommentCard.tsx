@@ -134,7 +134,10 @@ export const CommentCard = ({
   };
 
   return (
-    <div className="bg-blue-800 mb-4 p-2 rounded-md h-32" key={id}>
+    <div
+      className="bg-blue-800 mb-4 p-2 rounded-md  flex flex-col justify-center"
+      key={id}
+    >
       {isEditComment ? (
         <PatchComment
           closePatch={setIsEditComment}
