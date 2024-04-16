@@ -1,5 +1,6 @@
 import useSWR from "swr";
 import {
+  Bookmark,
   CommentFavorites,
   Comments,
   Favorites,
@@ -29,6 +30,10 @@ export const useComments = () => {
 
 export const useCommentFavorites = () => {
   return useSWR<CommentFavorites[]>("/commentFavorites");
+};
+
+export const useBookmarks = () => {
+  return useSWR<Bookmark[]>("/bookmarks");
 };
 
 export const useTags = () => {

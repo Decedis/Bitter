@@ -439,9 +439,9 @@
       "password": "testPass2"
     },
     {
-      "id": "1",
-      "userName": "test_2",
-      "password": "testPass2"
+      "id": "2",
+      "userName": "test_3",
+      "password": "testPass3"
     }
   ],
   "comments": [
@@ -772,9 +772,14 @@
       "postId": "cc3d"
     },
     {
-      "id": "6916",
+      "id": "fc97",
       "userId": "0",
       "postId": "ea91"
+    },
+    {
+      "id": "985d",
+      "userId": "0",
+      "postId": "2129"
     }
   ],
   "commentFavorites": [
@@ -809,5 +814,46 @@
       "commentId": "11"
     }
   ],
-  "bookmarks": []
+  "bookmarks": [
+    {
+      "id": "658b",
+      "userId": "0",
+      "postId": "ea91"
+    },
+    {
+      "id": "a204",
+      "userId": "0",
+      "postId": "e6a2"
+    },
+    {
+      "id": "a7ea",
+      "userId": "0",
+      "postId": "2129"
+    },
+    {
+      "id": "2889",
+      "userId": "0",
+      "postId": "4787"
+    },
+    {
+      "id": "9ad9",
+      "userId": "0",
+      "bookmarkId": "b239"
+    },
+    {
+      "id": "52e5",
+      "userId": "0",
+      "postId": "cc3d"
+    },
+    {
+      "id": "e8ab",
+      "userId": "0",
+      "postId": "05de"
+    },
+    {
+      "id": "e8f0",
+      "userId": "0",
+      "postId": "aeb6"
+    }
+  ]
 }

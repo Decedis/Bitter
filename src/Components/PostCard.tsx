@@ -27,10 +27,6 @@ export const PostCard = ({
 
   //TODO: this findFavoriteID and the one in CommentCard might be able to be refactored into a single function
 
-  // const deleteButtonCSS = user
-  //   ? "bg-blue-500 rounded-full w-8 h-8 self-center"
-  //   : "opacity-0";
-
   const deleteButton =
     user?.id === createdByID ? (
       <button

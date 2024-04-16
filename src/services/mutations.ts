@@ -1,10 +1,12 @@
 import useSWRMutation from "swr/mutation";
-import { useComments, useFavorites, usePosts } from "./queries";
+import { useBookmarks, useComments, useFavorites, usePosts } from "./queries";
 import {
+  createBookmark,
   createComment,
   createCommentFavorite,
   createFavorite,
   createPost,
+  deleteBookmark,
   deleteComment,
   deleteCommentFavorite,
   deleteFavorite,
@@ -129,6 +131,30 @@ export const useDeleteFavorite = () => {
   return useSWRMutation("/favorites", deleteFavorite, {
     onError() {
       console.log("favorite not deleted");
+    },
+    onSuccess: () => {
+      mutate();
+    },
+  });
+};
+
+export const useCreateBookmark = () => {
+  const { mutate } = useBookmarks();
+  return useSWRMutation("/bookmarks", createBookmark, {
+    onError() {
+      console.log("bookmark not created");
+    },
+    onSuccess: () => {
+      mutate();
+    },
+  });
+};
+
+export const useDeleteBookmark = () => {
+  const { mutate } = useBookmarks();
+  return useSWRMutation("/bookmarks", deleteBookmark, {
+    onError() {
+      console.log("bookmark not deleted");
     },
     onSuccess: () => {
       mutate();
