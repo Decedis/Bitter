@@ -31,26 +31,6 @@ export const Bookmarks = () => {
       })
     : [];
 
-  // const userBookmarks = user.user
-  //   ? postQuery.data?.filter((post) => {
-  //       const arr: Post[] = [];
-  //       bookmarkQuery.data?.filter((bookmark) => {
-  //         if (
-  //           bookmark.userId === user.user?.id &&
-  //           bookmark.postId === post.id
-  //         ) {
-  //           arr.push(post);
-  //         }
-  //       });
-  //       return arr.length > 0;
-  //     })
-  //   : [];
-
-  //console.log("postQuery: ", postQuery.data);
-  console.log("user: ", user.user);
-  console.log("bookmarkQuery: ", bookmarkQuery.data);
-  console.log("userBookmarks: ", userBookmarks);
-
   return (
     <div className="flex flex-col gap-2 justify-center items-center min-h-18">
       <h1 className="mt-6">Bookmarks</h1>
