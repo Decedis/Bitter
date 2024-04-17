@@ -30,8 +30,8 @@
 - [ ] Account creation
 - [x] Create posts
 - [x] Like posts
-- [ ] Bookmark posts
-- [ ] Bookmark route
+- [x] Bookmark posts
+- [x] Bookmark route
 - [x] Delete posts
 - [x] Edit posts
 - [x] Render comments
