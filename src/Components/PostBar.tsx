@@ -60,7 +60,6 @@ export const PostBar = ({
     const newArr = (bookmarkQuery ?? []).filter((bookmark) => {
       return bookmark.userId === user?.id;
     });
-    console.log("newArr activeMark: ", newArr);
 
     //TODO refactor =>
     //BUG =>> db shape is incorrect. bookmarkId should be postId
@@ -155,10 +154,6 @@ export const PostBar = ({
       console.log("No user found");
     }
   };
-  console.log(
-    "bookmark active: ",
-    isBookmarkActive(id, bookmarkQuery.data as Bookmark[])
-  );
 
   return (
     <>

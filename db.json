@@ -780,6 +780,11 @@
       "id": "985d",
       "userId": "0",
       "postId": "2129"
+    },
+    {
+      "id": "3d12",
+      "userId": "0",
+      "postId": "e6a2"
     }
   ],
   "commentFavorites": [
@@ -812,48 +817,33 @@
       "id": "33ec",
       "userId": "0",
       "commentId": "11"
+    },
+    {
+      "id": "d8a5",
+      "userId": "0",
+      "commentId": null
     }
   ],
   "bookmarks": [
-    {
-      "id": "658b",
-      "userId": "0",
-      "postId": "ea91"
-    },
     {
       "id": "a204",
       "userId": "0",
       "postId": "e6a2"
     },
     {
-      "id": "a7ea",
+      "id": "e8f0",
+      "userId": "0",
+      "postId": "aeb6"
+    },
+    {
+      "id": "d670",
       "userId": "0",
       "postId": "2129"
     },
     {
-      "id": "2889",
+      "id": "c850",
       "userId": "0",
-      "postId": "4787"
-    },
-    {
-      "id": "9ad9",
-      "userId": "0",
-      "bookmarkId": "b239"
-    },
-    {
-      "id": "52e5",
-      "userId": "0",
-      "postId": "cc3d"
-    },
-    {
-      "id": "e8ab",
-      "userId": "0",
-      "postId": "05de"
-    },
-    {
-      "id": "e8f0",
-      "userId": "0",
-      "postId": "aeb6"
+      "postId": "d390"
     }
   ]
 }
