@@ -41,6 +41,8 @@
 - [ ] Hashtag rendering in comments, posts, and search
 - [x] Profile route
 - [ ] Profile view with posts and comments
+- [ ] Toast pop-ups for bookmark creation, pos creation, and post deletion.
+- [ ]
 
 ## Code TODO
 
@@ -65,3 +67,7 @@
 - [ ] Notifications
 - [ ] Implement Zod
 - [ ] Implement DB
+
+## Tip:
+
+- Choose to build only a slice of a larger project, this lets us create more projects.
