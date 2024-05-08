@@ -24,9 +24,12 @@ export const UserContext = createContext<TAuth>(defaultAuthValue);
 export const FakeAuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User>();
 
+  //TODO if localStorage "user" exists, set 'user' to localStorage val.
+
   useEffect(() => {
-    if (!user) {
-      localStorage.removeItem("user");
+    if (!user && localStorage.getItem("user")) {
+      const userObj = localStorage.getItem("user");
+      userObj ? setUser(JSON.parse(userObj)) : null;
     }
   }, [user]);
 

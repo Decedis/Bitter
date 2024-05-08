@@ -1,5 +1,11 @@
 import useSWRMutation from "swr/mutation";
-import { useBookmarks, useComments, useFavorites, usePosts } from "./queries";
+import {
+  useBookmarks,
+  useComments,
+  useFavorites,
+  usePosts,
+  useUser,
+} from "./queries";
 import {
   createBookmark,
   createComment,
@@ -13,6 +19,7 @@ import {
   deletePost,
   patchComment,
   patchPost,
+  patchUserProfilePicture,
 } from "./api";
 
 //TODO: create a useMutation hook
@@ -49,6 +56,20 @@ export const usePatchPost = () => {
       console.log(err);
     },
     onSuccess: () => {
+      mutate();
+    },
+  });
+};
+
+export const usePatchUserProfilePicture = () => {
+  const { mutate } = useUser();
+  return useSWRMutation("/users", patchUserProfilePicture, {
+    onError(err) {
+      console.log(err);
+    },
+    onSuccess: () => {
+      console.log("success");
+
       mutate();
     },
   });

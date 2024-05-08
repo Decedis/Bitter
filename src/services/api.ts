@@ -31,6 +31,15 @@ export const patchPost = async (
   });
 };
 
+export const patchUserProfilePicture = async (
+  url: string,
+  { arg }: { arg: { id: string; profilePicture: string } }
+) => {
+  await axiosInstance.patch(`${url}/${arg.id}`, {
+    profilePicture: arg.profilePicture,
+  });
+};
+
 export const createComment = async (
   url: string,
   { arg }: { arg: Omit<Comments, "id"> }

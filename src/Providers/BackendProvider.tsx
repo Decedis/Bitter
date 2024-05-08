@@ -3,14 +3,11 @@ import { SWRConfig } from "swr";
 
 import fetcher from "../services/fetcher";
 
-export const PostsProvider = ({ children }: { children: ReactNode }) => {
-  //const [allPosts, setAllPosts] = useState<Post[]>([]);
-
+export const DataProvider = ({ children }: { children: ReactNode }) => {
   return (
     <SWRConfig
       value={{
         fetcher,
-
         // refreshInterval: 3000,
         // revalidateIfStale: false,
         // revalidateOnFocus: true,

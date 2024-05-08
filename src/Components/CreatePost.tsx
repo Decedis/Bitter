@@ -17,6 +17,7 @@ export const CreatePost = () => {
   const handleCreatePost = async () => {
     // await axiosInstance.post("/posts", { postContent: postContent });
     // mutate();
+
     trigger(
       {
         postContent: postDraft,

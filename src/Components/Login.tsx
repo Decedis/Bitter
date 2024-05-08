@@ -5,7 +5,7 @@ import { User } from "../types";
 import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
-  const [userForm, setUserForm] = useState<User>({
+  const [userForm, setUserForm] = useState<Omit<User, "profilePicture">>({
     id: undefined,
     userName: "",
     password: "",

@@ -1,28 +1,30 @@
 import "./App.css";
-import { PostsProvider } from "./Providers/BackendProvider";
-import { Feed } from "./Components/Feed";
+import { DataProvider } from "./Providers/BackendProvider";
 import { Nav } from "./Components/Nav";
-import { Routes, Route } from "react-router-dom";
-import { Login } from "./Components/Login";
 import { FakeAuthProvider } from "./Providers/FakeAuthProvider";
-import { ProfileView } from "./Components/ProfileView";
+import { Routes, Route } from "react-router-dom";
 import { Bookmarks } from "./Components/Bookmarks";
+import { Feed } from "./Components/Feed";
+import { Login } from "./Components/Login";
+import { ProfileViewer } from "./Components/ProfileViewer";
+import { User } from "./Components/User";
 
 function App() {
   return (
     <FakeAuthProvider>
-      <PostsProvider>
+      <DataProvider>
         <Nav />
-
         <Routes>
-          <Route path="/">
+          <Route path="/" errorElement={<div>Oops, page not found</div>}>
             <Route index element={<Feed />} />
             <Route path="login" element={<Login />} />
-            <Route path="profile" element={<ProfileView />} />
+            <Route path="profile" element={<ProfileViewer />}>
+              <Route path=":userId" element={<User />} />
+            </Route>
             <Route path="bookmarks" element={<Bookmarks />} />
           </Route>
         </Routes>
-      </PostsProvider>
+      </DataProvider>
     </FakeAuthProvider>
   );
 }

@@ -9,6 +9,7 @@ import { findAuthorName } from "../utils";
 import { useDeletePosts } from "../services/mutations";
 import { PatchPost } from "./PatchPost";
 import { PostBar } from "./PostBar";
+import { Link } from "react-router-dom";
 
 export const PostCard = ({
   createdByID,
@@ -25,8 +26,26 @@ export const PostCard = ({
 
   const { trigger: deletePostTrigger } = useDeletePosts();
 
-  //TODO: this findFavoriteID and the one in CommentCard might be able to be refactored into a single function
+  const profileImage = () => {
+    const foundUser = userQuery.data?.find((user) => user.id === createdByID);
+    return foundUser
+      ? foundUser.profilePicture
+      : "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg";
+  };
 
+  //   return  user.profilePicture
+  // } else {
+  //   return "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg";
+  // }
+
+  // const foundUser = userQuery.data?.find((user) => user.id === createdByID);
+
+  // const profileImage = foundUser
+  //   ? foundUser.profilePicture
+  //   : "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg";
+  // console.log(profileImage);
+
+  //TODO: this findFavoriteID and the one in CommentCard might be able to be refactored into a single function
   const deleteButton =
     user?.id === createdByID ? (
       <button
@@ -70,14 +89,14 @@ export const PostCard = ({
   return (
     <div
       key={id}
-      className="card w-96 rounded-sm bg-neutral text-primary-content p-2 text-white "
+      className="card w-96 rounded-sm bg-neutral text-primary-content p-2 text-white"
     >
-      <h3 className="flex flex-row gap-2 border-b-2 border-white text-white justify-between pb-1">
+      <h3 className="flex flex-row gap-2 border-b-2 border-white text-white justify-between pb-1 items-center">
         <div className="flex flex-row gap-2">
           <div className="avatar">
-            <div className="w-12 rounded-xl">
-              <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-            </div>
+            <Link className="w-12 h-12" to={`profile/${createdByID}`}>
+              <img className="rounded-xl" src={profileImage()} />
+            </Link>
           </div>
           <div className="card-title ">
             {findAuthorName(createdByID, userQuery)}
@@ -94,6 +113,8 @@ export const PostCard = ({
           />
         ) : (
           postContent
+          //postContent needs to be fed through the regex expression to check for hashtags
+          //if hashtags exist, then they need to be converted into a clickable event for searching
         )}
       </div>
       {isEditPost ? (

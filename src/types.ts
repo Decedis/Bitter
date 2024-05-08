@@ -2,6 +2,7 @@ export interface User {
   id: string | undefined;
   userName: string;
   password: string;
+  profilePicture: string;
 }
 
 export type Comments = {

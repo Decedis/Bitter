@@ -20,7 +20,7 @@
     },
     {
       "id": "2129",
-      "postContent": "This site is so shit",
+      "postContent": "This site is so shit, but it's getting better. ",
       "createdByID": "0",
       "creationTime": "2024-03-18T07:00:47.225Z"
     },
@@ -71,377 +71,32 @@
       "postContent": "I FUCKING MADE THIS...or did I? ...shit...I'm editing this...and it's overflowing?!",
       "createdByID": "0",
       "creationTime": "2024-04-05T22:15:12.929Z"
-    }
-  ],
-  "tags": [
-    {
-      "id": "0",
-      "postId": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13,
-        14,
-        15
-      ],
-      "tagName": "#writing"
     },
     {
-      "id": "1",
-      "postId": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13,
-        14,
-        15
-      ],
-      "tagName": "#engineering"
-    },
-    {
-      "id": "2",
-      "postId": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13,
-        14,
-        15
-      ],
-      "tagName": "#teaching"
-    },
-    {
-      "id": "3",
-      "postId": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13,
-        14,
-        15
-      ],
-      "tagName": "#writing"
-    },
-    {
-      "id": "4",
-      "postId": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13,
-        14,
-        15
-      ],
-      "tagName": "#humanities"
-    },
-    {
-      "id": "5",
-      "postId": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13,
-        14,
-        15
-      ],
-      "tagName": "#astronomy"
-    },
-    {
-      "id": "6",
-      "postId": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13,
-        14,
-        15
-      ],
-      "tagName": "#STEM"
-    },
-    {
-      "id": "7",
-      "postId": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13,
-        14,
-        15
-      ],
-      "tagName": "#plumbing"
-    },
-    {
-      "id": "8",
-      "postId": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13,
-        14,
-        15
-      ],
-      "tagName": "#astronomy"
-    },
-    {
-      "id": "9",
-      "postId": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13,
-        14,
-        15
-      ],
-      "tagName": "#writing"
-    },
-    {
-      "id": "10",
-      "postId": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13,
-        14,
-        15
-      ],
-      "tagName": "#mathematics"
-    },
-    {
-      "id": "11",
-      "postId": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13,
-        14,
-        15
-      ],
-      "tagName": "#programming"
-    },
-    {
-      "id": "12",
-      "postId": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13,
-        14,
-        15
-      ],
-      "tagName": "#engineering"
-    },
-    {
-      "id": "13",
-      "postId": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13,
-        14,
-        15
-      ],
-      "tagName": "#STEM"
-    },
-    {
-      "id": "14",
-      "postId": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13,
-        14,
-        15
-      ],
-      "tagName": "#writing"
-    },
-    {
-      "id": "15",
-      "postId": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13,
-        14,
-        15
-      ],
-      "tagName": "#mathematics"
+      "id": "7f49",
+      "postContent": "Test point",
+      "createdByID": "0",
+      "creationTime": "2024-04-26T23:55:09.857Z"
     }
   ],
   "users": [
     {
       "id": "0",
       "userName": "test_1",
-      "password": "testPass1"
+      "password": "testPass1",
+      "profilePicture": "https://blog.bear.app/wp-content/uploads/2018/10/bear-icon.png"
     },
     {
       "id": "1",
       "userName": "test_2",
-      "password": "testPass2"
+      "password": "testPass2",
+      "profilePicture": "https://images.unsplash.com/photo-1713872288272-afa3f0d001c2?q=80&w=3091&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
       "id": "2",
       "userName": "test_3",
-      "password": "testPass3"
+      "password": "testPass3",
+      "profilePicture": "https://images.unsplash.com/photo-1714182370392-a32d43080717?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     }
   ],
   "comments": [
@@ -678,6 +333,18 @@
       "userId": "0",
       "postId": "ea91",
       "commentContent": "Lets do this some more and forget about teh rest of the day and cry awayLets do this some more and forget about teh rest of the day and cry awayLets do this some more and forget about teh rest of the day and cry awayLets do this some more and forget about teh rest of the day and cry away"
+    },
+    {
+      "id": "55c4",
+      "userId": "0",
+      "postId": "7f49",
+      "commentContent": "test subpoint"
+    },
+    {
+      "id": "9057",
+      "userId": "0",
+      "postId": "7f49",
+      "commentContent": "The fuck is the deal with this?"
     }
   ],
   "favorites": [
@@ -785,6 +452,16 @@
       "id": "3d12",
       "userId": "0",
       "postId": "e6a2"
+    },
+    {
+      "id": "d2ac",
+      "userId": "0",
+      "postId": "aeb6"
+    },
+    {
+      "id": "598f",
+      "userId": "0",
+      "postId": "05de"
     }
   ],
   "commentFavorites": [
@@ -822,6 +499,11 @@
       "id": "d8a5",
       "userId": "0",
       "commentId": null
+    },
+    {
+      "id": "461d",
+      "userId": "0",
+      "commentId": "55c4"
     }
   ],
   "bookmarks": [
@@ -844,6 +526,26 @@
       "id": "c850",
       "userId": "0",
       "postId": "d390"
+    },
+    {
+      "id": "5403",
+      "userId": "0",
+      "postId": "05de"
+    },
+    {
+      "id": "3e74",
+      "userId": "0",
+      "postId": "cc3d"
+    },
+    {
+      "id": "72e0",
+      "userId": "0",
+      "postId": "7f49"
+    },
+    {
+      "id": "6f05",
+      "userId": "0",
+      "postId": "84ab"
     }
   ]
 }

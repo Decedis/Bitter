@@ -8,7 +8,6 @@ export const PostButton = ({
   icon: ReactNode;
   value?: number;
   onClickEvent?: React.MouseEventHandler<HTMLButtonElement>;
-  // isActive?: boolean;
 }) => {
   //include local state based on server values => active, setActive<boolean>
   return (
