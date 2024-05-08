@@ -4,6 +4,7 @@ import {
   Comments,
   Favorites,
   ProtoPost,
+  User,
 } from "../types";
 import { axiosInstance } from "./fetcher";
 
@@ -60,16 +61,6 @@ export const patchComment = async (
   });
 };
 
-export const createFavorite = async (
-  url: string,
-  { arg }: { arg: Omit<Favorites, "id"> }
-) => {
-  await axiosInstance.post(url, {
-    userId: arg.userId,
-    postId: arg.postId,
-  });
-};
-
 export const deleteComment = async (url: string, { arg }: { arg: string }) => {
   await axiosInstance.delete(`${url}/${arg}`);
 };
@@ -81,6 +72,16 @@ export const createCommentFavorite = async (
   await axiosInstance.post(url, {
     userId: arg.userId,
     commentId: arg.commentId,
+  });
+};
+
+export const createFavorite = async (
+  url: string,
+  { arg }: { arg: Omit<Favorites, "id"> }
+) => {
+  await axiosInstance.post(url, {
+    userId: arg.userId,
+    postId: arg.postId,
   });
 };
 
@@ -104,4 +105,15 @@ export const createBookmark = async (
 
 export const deleteBookmark = async (url: string, { arg }: { arg: string }) => {
   await axiosInstance.delete(`${url}/${arg}`);
+};
+
+export const createUser = async (
+  url: string,
+  { arg }: { arg: Omit<User, "id"> }
+) => {
+  await axiosInstance.post(url, {
+    userName: arg.userName,
+    password: arg.password,
+    profilePicture: arg.profilePicture,
+  });
 };

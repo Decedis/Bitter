@@ -24,8 +24,6 @@ export const Nav = () => {
     navigate("/login");
   };
 
-  console.log("nav img info: ", user?.profilePicture);
-
   return (
     <nav className="navbar bg-neutral text-neutral-content">
       <Link to={"/"}>
@@ -54,6 +52,7 @@ export const Nav = () => {
             <div className="w-12 rounded-xl p-1">
               {user?.profilePicture ? (
                 <img
+                  className="rounded-xl"
                   alt="Tailwind CSS Navbar component"
                   src={user?.profilePicture}
                 />

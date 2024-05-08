@@ -54,16 +54,9 @@ export const PostBar = ({
   };
 
   const isBookmarkActive = (localId: string, bookmarkQuery: Bookmark[]) => {
-    // const newArr = (bookmarkQuery ?? []).filter((bookmark) => {
-    //   return bookmark.postId === localId;
-    // });
     const newArr = (bookmarkQuery ?? []).filter((bookmark) => {
       return bookmark.userId === user?.id;
     });
-
-    //TODO refactor =>
-    //BUG =>> db shape is incorrect. bookmarkId should be postId
-    //Find bug, it is on the mutation somewhere.
 
     for (let i = 0; i < newArr.length; i++) {
       if (newArr[i].postId === localId) {

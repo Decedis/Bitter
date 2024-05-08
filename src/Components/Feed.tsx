@@ -5,7 +5,6 @@ import { CreatePost } from "./CreatePost";
 
 export const Feed = () => {
   const postsQuery = usePosts();
-
   const favQuery = useFavorites();
   const commentsQuery = useComments();
 
@@ -35,9 +34,9 @@ export const Feed = () => {
       <CreatePost />
       <div className="flex flex-col flex-wrap gap-2  mx-auto justify-center">
         {favQuery && postsQuery ? (
-          sortedPosts?.map((post: Post) => (
+          sortedPosts?.map((post: Post, index: number) => (
             <PostCard
-              key={post.id}
+              key={index}
               id={post.id}
               createdByID={post.createdByID}
               creationTime={post.creationTime}
@@ -48,9 +47,9 @@ export const Feed = () => {
             />
           ))
         ) : (
-          <>
+          <div>
             <h2>Loading...</h2>
-          </>
+          </div>
         )}
       </div>
     </section>

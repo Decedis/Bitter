@@ -33,19 +33,6 @@ export const PostCard = ({
       : "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg";
   };
 
-  //   return  user.profilePicture
-  // } else {
-  //   return "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg";
-  // }
-
-  // const foundUser = userQuery.data?.find((user) => user.id === createdByID);
-
-  // const profileImage = foundUser
-  //   ? foundUser.profilePicture
-  //   : "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg";
-  // console.log(profileImage);
-
-  //TODO: this findFavoriteID and the one in CommentCard might be able to be refactored into a single function
   const deleteButton =
     user?.id === createdByID ? (
       <button
@@ -94,7 +81,7 @@ export const PostCard = ({
       <h3 className="flex flex-row gap-2 border-b-2 border-white text-white justify-between pb-1 items-center">
         <div className="flex flex-row gap-2">
           <div className="avatar">
-            <Link className="w-12 h-12" to={`profile/${createdByID}`}>
+            <Link className="w-12 h-12" to={`/profile/${createdByID}`}>
               <img className="rounded-xl" src={profileImage()} />
             </Link>
           </div>
@@ -113,8 +100,6 @@ export const PostCard = ({
           />
         ) : (
           postContent
-          //postContent needs to be fed through the regex expression to check for hashtags
-          //if hashtags exist, then they need to be converted into a clickable event for searching
         )}
       </div>
       {isEditPost ? (

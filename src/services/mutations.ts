@@ -12,6 +12,7 @@ import {
   createCommentFavorite,
   createFavorite,
   createPost,
+  createUser,
   deleteBookmark,
   deleteComment,
   deleteCommentFavorite,
@@ -176,6 +177,18 @@ export const useDeleteBookmark = () => {
   return useSWRMutation("/bookmarks", deleteBookmark, {
     onError() {
       console.log("bookmark not deleted");
+    },
+    onSuccess: () => {
+      mutate();
+    },
+  });
+};
+
+export const useCreateUser = () => {
+  const { mutate } = useBookmarks();
+  return useSWRMutation("/users", createUser, {
+    onError() {
+      console.log("user not created");
     },
     onSuccess: () => {
       mutate();

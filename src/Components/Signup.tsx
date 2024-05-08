@@ -1,46 +1,52 @@
-import { useContext, useState } from "react";
-import { UserContext } from "../Providers/FakeAuthProvider";
-import { useUser } from "../services/queries";
+import { useState } from "react";
 import { User } from "../types";
-import { Link, useNavigate } from "react-router-dom";
+import { useCreateUser } from "../services/mutations";
+import { useNavigate } from "react-router-dom";
+import { useUser } from "../services/queries";
 
-export const Login = () => {
-  const [userForm, setUserForm] = useState<Omit<User, "profilePicture">>({
-    id: undefined,
+export const Signup = () => {
+  const [newUser, setNewUser] = useState<Omit<User, "id">>({
     userName: "",
     password: "",
+    profilePicture: "",
   });
   const userQuery = useUser();
-  const { setUser } = useContext(UserContext);
   const navigate = useNavigate();
+  const { trigger: triggerCreateUser } = useCreateUser();
 
-  !userQuery.data ? console.log(userQuery.error) : console.log(userQuery.data);
-
-  const userLogin = (
-    username: string,
-    password: string,
-    allUserData?: User[]
-  ) => {
-    allUserData?.some((u) => {
-      if (u.userName === username && u.password === password) {
-        localStorage.setItem("user", JSON.stringify(u));
-        navigate("/");
-        return setUser(u);
+  const handleAccountCreation = () => {
+    triggerCreateUser(
+      {
+        userName: newUser.userName,
+        password: newUser.password,
+        profilePicture: "",
+      },
+      {
+        optimisticData: userQuery.data && [
+          ...userQuery.data,
+          {
+            userName: newUser.userName,
+            password: newUser.password,
+            profilePicture: "",
+          },
+        ],
+        rollbackOnError: true,
       }
-    });
+    );
   };
-
+  //TODO need to check for duplicates of usernames? Maybe?
   return (
     <form
       className="border-2 border-color-slate-500 w-96 mx-auto flex flex-col items-center bg-slate-700 text-white p-4 mt-12 gap-4 rounded-md"
       action=""
       onSubmit={(e) => {
         e.preventDefault();
-        userLogin(userForm.userName, userForm.password, userQuery.data);
-        setUserForm({ id: undefined, userName: "", password: "" });
+        handleAccountCreation();
+        navigate("/");
+        setNewUser({ userName: "", password: "", profilePicture: "" });
       }}
     >
-      <h2 className="mb-8 border-b-2 border-white text-lg">Login</h2>
+      <h2 className="mb-8 border-b-2 border-white text-lg">Sign up</h2>
       <div className="flex flex-col flex-wrap w-11/12 h-28 items-center text-purple-700 gap-4 ">
         <label className="input input-bordered flex items-center gap-2">
           <svg
@@ -54,9 +60,9 @@ export const Login = () => {
           <input
             type="text"
             className="grow"
-            value={userForm.userName}
+            value={newUser.userName}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setUserForm({ ...userForm, userName: e.target.value })
+              setNewUser({ ...newUser, userName: e.target.value })
             }
             placeholder="Username"
           />
@@ -77,21 +83,15 @@ export const Login = () => {
           <input
             type="password"
             className="grow"
-            value={userForm.password}
+            value={newUser.password}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setUserForm({ ...userForm, password: e.target.value })
+              setNewUser({ ...newUser, password: e.target.value })
             }
           />
         </label>
       </div>
       <div className="flex gap-4 items-center">
         <input className="btn border-2 border-white p-2" type="submit" />
-        <Link
-          className="text-purple-400 border-b-2 border-purple-500"
-          to="/signup"
-        >
-          Sign up
-        </Link>
       </div>
     </form>
   );

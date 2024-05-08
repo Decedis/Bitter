@@ -77,6 +77,96 @@
       "postContent": "Test point",
       "createdByID": "0",
       "creationTime": "2024-04-26T23:55:09.857Z"
+    },
+    {
+      "id": "7c0a",
+      "postContent": "Is this real life?",
+      "createdByID": "44f9",
+      "creationTime": "2024-05-08T08:31:44.813Z"
+    },
+    {
+      "id": "8eed",
+      "postContent": "try again",
+      "createdByID": "44f9",
+      "creationTime": "2024-05-08T08:32:59.471Z"
+    },
+    {
+      "id": "c288",
+      "postContent": "Where is the error",
+      "createdByID": "44f9",
+      "creationTime": "2024-05-08T08:41:47.720Z"
+    },
+    {
+      "id": "d803",
+      "postContent": "Error?",
+      "createdByID": "44f9",
+      "creationTime": "2024-05-08T08:41:54.901Z"
+    },
+    {
+      "id": "d8b3",
+      "postContent": "No errors?",
+      "createdByID": "44f9",
+      "creationTime": "2024-05-08T08:44:15.941Z"
+    },
+    {
+      "id": "0861",
+      "postContent": "err",
+      "createdByID": "44f9",
+      "creationTime": "2024-05-08T08:45:02.569Z"
+    },
+    {
+      "id": "2b7e",
+      "postContent": "String the carrot",
+      "createdByID": "44f9",
+      "creationTime": "2024-05-08T22:01:21.071Z"
+    },
+    {
+      "id": "fc0e",
+      "postContent": "neope",
+      "createdByID": "44f9",
+      "creationTime": "2024-05-08T22:07:25.289Z"
+    },
+    {
+      "id": "5520",
+      "postContent": "What",
+      "createdByID": "44f9",
+      "creationTime": "2024-05-08T22:24:50.711Z"
+    },
+    {
+      "id": "2371",
+      "postContent": "Kill",
+      "createdByID": "44f9",
+      "creationTime": "2024-05-08T22:28:07.105Z"
+    },
+    {
+      "id": "4f18",
+      "postContent": "My name is jon",
+      "createdByID": "44f9",
+      "creationTime": "2024-05-08T22:34:34.725Z"
+    },
+    {
+      "id": "5d3f",
+      "postContent": "Try this again",
+      "createdByID": "44f9",
+      "creationTime": "2024-05-08T22:35:44.415Z"
+    },
+    {
+      "id": "e93d",
+      "postContent": "This shit is busted",
+      "createdByID": "44f9",
+      "creationTime": "2024-05-08T22:38:56.489Z"
+    },
+    {
+      "id": "65a8",
+      "postContent": "totally busted?",
+      "createdByID": "44f9",
+      "creationTime": "2024-05-08T22:39:01.677Z"
+    },
+    {
+      "id": "eebc",
+      "postContent": "is it busted",
+      "createdByID": "44f9",
+      "creationTime": "2024-05-08T22:39:33.152Z"
     }
   ],
   "users": [
@@ -97,6 +187,12 @@
       "userName": "test_3",
       "password": "testPass3",
       "profilePicture": "https://images.unsplash.com/photo-1714182370392-a32d43080717?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": "44f9",
+      "userName": "Jon",
+      "password": "test123",
+      "profilePicture": "https://media.guitarcenter.com/is/image/MMGS7/Synyster-Gates-Custom-S-Relic-Electric-Guitar-Distressed-Satin-Black/M11245000001000-00-264x264.jpg"
     }
   ],
   "comments": [
@@ -462,6 +558,61 @@
       "id": "598f",
       "userId": "0",
       "postId": "05de"
+    },
+    {
+      "id": "69dc",
+      "userId": "44f9",
+      "postId": "8eed"
+    },
+    {
+      "id": "7f95",
+      "userId": "0",
+      "postId": "65a8"
+    },
+    {
+      "id": "d039",
+      "userId": "0",
+      "postId": "fc0e"
+    },
+    {
+      "id": "7aae",
+      "userId": "0",
+      "postId": "cc3d"
+    },
+    {
+      "id": "6f23",
+      "userId": "0",
+      "postId": "eebc"
+    },
+    {
+      "id": "0a4d",
+      "userId": "44f9",
+      "postId": "65a8"
+    },
+    {
+      "id": "ea17",
+      "userId": "44f9",
+      "postId": "eebc"
+    },
+    {
+      "id": "685b",
+      "userId": "44f9",
+      "postId": "e93d"
+    },
+    {
+      "id": "cb97",
+      "userId": "44f9",
+      "postId": "5d3f"
+    },
+    {
+      "id": "fd33",
+      "userId": "44f9",
+      "postId": "4f18"
+    },
+    {
+      "id": "37fc",
+      "userId": "0",
+      "postId": "d8b3"
     }
   ],
   "commentFavorites": [
@@ -508,44 +659,14 @@
   ],
   "bookmarks": [
     {
-      "id": "a204",
+      "id": "b325",
       "userId": "0",
-      "postId": "e6a2"
+      "postId": null
     },
     {
-      "id": "e8f0",
+      "id": "f320",
       "userId": "0",
-      "postId": "aeb6"
-    },
-    {
-      "id": "d670",
-      "userId": "0",
-      "postId": "2129"
-    },
-    {
-      "id": "c850",
-      "userId": "0",
-      "postId": "d390"
-    },
-    {
-      "id": "5403",
-      "userId": "0",
-      "postId": "05de"
-    },
-    {
-      "id": "3e74",
-      "userId": "0",
-      "postId": "cc3d"
-    },
-    {
-      "id": "72e0",
-      "userId": "0",
-      "postId": "7f49"
-    },
-    {
-      "id": "6f05",
-      "userId": "0",
-      "postId": "84ab"
+      "postId": "eebc"
     }
   ]
 }

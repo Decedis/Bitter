@@ -8,6 +8,7 @@ import { Feed } from "./Components/Feed";
 import { Login } from "./Components/Login";
 import { ProfileViewer } from "./Components/ProfileViewer";
 import { User } from "./Components/User";
+import { Signup } from "./Components/Signup";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" errorElement={<div>Oops, page not found</div>}>
             <Route index element={<Feed />} />
             <Route path="login" element={<Login />} />
+            <Route path="signup" element={<Signup />} />
             <Route path="profile" element={<ProfileViewer />}>
               <Route path=":userId" element={<User />} />
             </Route>

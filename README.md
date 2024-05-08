@@ -1,12 +1,10 @@
-# Resource Gatherer
+# Bitter
 
 ## Primary technology
 
 - React
 - Typescript
 - Tailwind
-- Supabase/Postgres
-- Zod
 
 ## Purpose
 
@@ -38,11 +36,9 @@
 - [x] Create comments
 - [x] Edit comments
 - [x] Like comments
-- [ ] Hashtag rendering in comments, posts, and search
 - [x] Profile route
-- [ ] Profile view with posts and comments
+- [x] Profile view with posts
 - [ ] Toast pop-ups for bookmark creation, pos creation, and post deletion.
-- [ ]
 
 ## Code TODO
 
@@ -67,6 +63,7 @@
 - [ ] Notifications
 - [ ] Implement Zod
 - [ ] Implement DB
+- [ ] Implement Tag system
 
 ## Tip:
 
