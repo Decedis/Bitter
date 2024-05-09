@@ -47,6 +47,7 @@ export const PostCard = ({
   const commentFavQuery = useCommentFavorites();
   const bookmarkQuery = useBookmarks();
 
+  //ignore this, it doesn't do anything is is slated for deletion.
   const commentsPrune = async () => {
     if (commentsQuery.data) {
       const arr = await Promise.all(commentsQuery.data).then((commentArr) => {
