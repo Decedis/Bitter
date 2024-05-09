@@ -1,12 +1,25 @@
-import { Post } from "../types";
+import { Comments, Post } from "../types";
 
 import { EllipsisVerticalIcon } from "@heroicons/react/24/outline";
 import { useContext, useState } from "react";
 import { UserContext } from "../Providers/FakeAuthProvider";
-import { usePosts, useUser } from "../services/queries";
+import {
+  useBookmarks,
+  useCommentFavorites,
+  useComments,
+  useFavorites,
+  usePosts,
+  useUser,
+} from "../services/queries";
 
 import { findAuthorName } from "../utils";
-import { useDeletePosts } from "../services/mutations";
+import {
+  useDeleteBookmark,
+  useDeleteComment,
+  useDeleteCommentFavorite,
+  useDeleteFavorite,
+  useDeletePosts,
+} from "../services/mutations";
 import { PatchPost } from "./PatchPost";
 import { PostBar } from "./PostBar";
 import { Link } from "react-router-dom";
@@ -19,12 +32,31 @@ export const PostCard = ({
   id,
 }: Post) => {
   const [isEditPost, setIsEditPost] = useState(false);
-
   const userQuery = useUser();
   const postsQuery = usePosts();
   const { user } = useContext(UserContext);
 
   const { trigger: deletePostTrigger } = useDeletePosts();
+  const { trigger: deleteCommentTrigger } = useDeleteComment();
+  const { trigger: deleteFavoriteTrigger } = useDeleteFavorite();
+  const { trigger: deleteCommentFavoriteTrigger } = useDeleteCommentFavorite();
+  const { trigger: deleteBookmarkTrigger } = useDeleteBookmark();
+
+  const commentsQuery = useComments();
+  const favQuery = useFavorites();
+  const commentFavQuery = useCommentFavorites();
+  const bookmarkQuery = useBookmarks();
+
+  const commentsPrune = async () => {
+    if (commentsQuery.data) {
+      const arr = await Promise.all(commentsQuery.data).then((commentArr) => {
+        return commentArr.filter((comment) => comment.postId !== null);
+      });
+
+      return arr;
+    }
+  };
+  commentsPrune();
 
   const profileImage = () => {
     const foundUser = userQuery.data?.find((user) => user.id === createdByID);
@@ -42,6 +74,51 @@ export const PostCard = ({
               postsQuery.data &&
               postsQuery.data.filter((post) => post.id !== id),
             rollbackOnError: true,
+          });
+          commentsQuery.data?.map((comment) => {
+            if (comment.postId === id) {
+              deleteCommentTrigger(comment.id, {
+                optimisticData:
+                  commentsQuery.data &&
+                  commentsQuery.data.filter((comment) => comment.postId !== id),
+                rollbackOnError: true,
+              });
+              commentFavQuery.data?.map((comFav) => {
+                if (comFav.commentId === comment.id) {
+                  deleteCommentFavoriteTrigger(comFav.id, {
+                    optimisticData:
+                      commentFavQuery.data &&
+                      commentFavQuery.data.filter(
+                        (comFav) => comFav.commentId !== comment.id
+                      ),
+                    rollbackOnError: true,
+                  });
+                }
+              });
+            }
+          });
+          bookmarkQuery.data?.map((bookmark) => {
+            //On occasion a bug occurs that fails to delete the data. Can't reliably reproduce
+            if (bookmark.postId === id) {
+              deleteBookmarkTrigger(bookmark.id, {
+                optimisticData:
+                  bookmarkQuery.data &&
+                  bookmarkQuery.data.filter(
+                    (bookmark) => bookmark.postId !== id
+                  ),
+                rollbackOnError: true,
+              });
+            }
+          });
+          favQuery.data?.map((fav) => {
+            if (fav.postId === id) {
+              deleteFavoriteTrigger(fav.id, {
+                optimisticData:
+                  favQuery.data &&
+                  favQuery.data.filter((fav) => fav.postId !== id),
+                rollbackOnError: true,
+              });
+            }
           });
         }}
       >

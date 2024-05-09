@@ -73,100 +73,10 @@
       "creationTime": "2024-04-05T22:15:12.929Z"
     },
     {
-      "id": "7f49",
-      "postContent": "Test point",
-      "createdByID": "0",
-      "creationTime": "2024-04-26T23:55:09.857Z"
-    },
-    {
-      "id": "7c0a",
-      "postContent": "Is this real life?",
+      "id": "6459",
+      "postContent": "aoesuntahoesunthao",
       "createdByID": "44f9",
-      "creationTime": "2024-05-08T08:31:44.813Z"
-    },
-    {
-      "id": "8eed",
-      "postContent": "try again",
-      "createdByID": "44f9",
-      "creationTime": "2024-05-08T08:32:59.471Z"
-    },
-    {
-      "id": "c288",
-      "postContent": "Where is the error",
-      "createdByID": "44f9",
-      "creationTime": "2024-05-08T08:41:47.720Z"
-    },
-    {
-      "id": "d803",
-      "postContent": "Error?",
-      "createdByID": "44f9",
-      "creationTime": "2024-05-08T08:41:54.901Z"
-    },
-    {
-      "id": "d8b3",
-      "postContent": "No errors?",
-      "createdByID": "44f9",
-      "creationTime": "2024-05-08T08:44:15.941Z"
-    },
-    {
-      "id": "0861",
-      "postContent": "err",
-      "createdByID": "44f9",
-      "creationTime": "2024-05-08T08:45:02.569Z"
-    },
-    {
-      "id": "2b7e",
-      "postContent": "String the carrot",
-      "createdByID": "44f9",
-      "creationTime": "2024-05-08T22:01:21.071Z"
-    },
-    {
-      "id": "fc0e",
-      "postContent": "neope",
-      "createdByID": "44f9",
-      "creationTime": "2024-05-08T22:07:25.289Z"
-    },
-    {
-      "id": "5520",
-      "postContent": "What",
-      "createdByID": "44f9",
-      "creationTime": "2024-05-08T22:24:50.711Z"
-    },
-    {
-      "id": "2371",
-      "postContent": "Kill",
-      "createdByID": "44f9",
-      "creationTime": "2024-05-08T22:28:07.105Z"
-    },
-    {
-      "id": "4f18",
-      "postContent": "My name is jon",
-      "createdByID": "44f9",
-      "creationTime": "2024-05-08T22:34:34.725Z"
-    },
-    {
-      "id": "5d3f",
-      "postContent": "Try this again",
-      "createdByID": "44f9",
-      "creationTime": "2024-05-08T22:35:44.415Z"
-    },
-    {
-      "id": "e93d",
-      "postContent": "This shit is busted",
-      "createdByID": "44f9",
-      "creationTime": "2024-05-08T22:38:56.489Z"
-    },
-    {
-      "id": "65a8",
-      "postContent": "totally busted?",
-      "createdByID": "44f9",
-      "creationTime": "2024-05-08T22:39:01.677Z"
-    },
-    {
-      "id": "eebc",
-      "postContent": "is it busted",
-      "createdByID": "44f9",
-      "creationTime": "2024-05-08T22:39:33.152Z"
+      "creationTime": "2024-05-09T06:48:03.362Z"
     }
   ],
   "users": [
@@ -317,84 +227,6 @@
       "commentContent": "The content of the comment"
     },
     {
-      "id": "6b32",
-      "userId": "0",
-      "postId": null,
-      "commentContent": "Try this?"
-    },
-    {
-      "id": "fc10",
-      "userId": "0",
-      "postId": null,
-      "commentContent": "Here we go again"
-    },
-    {
-      "id": "78e3",
-      "userId": "0",
-      "postId": null,
-      "commentContent": "O fuck it works"
-    },
-    {
-      "id": "d5f5",
-      "userId": "0",
-      "postId": null,
-      "commentContent": "Okay, we do work."
-    },
-    {
-      "id": "9e69",
-      "userId": "0",
-      "postId": null,
-      "commentContent": "And this works, too. "
-    },
-    {
-      "id": "4932",
-      "userId": "0",
-      "postId": null,
-      "commentContent": "Whoa"
-    },
-    {
-      "id": "e5a4",
-      "userId": "0",
-      "postId": null,
-      "commentContent": "Holy shit"
-    },
-    {
-      "id": "967b",
-      "userId": "0",
-      "postId": null,
-      "commentContent": "Holy fuuuuuuuuuuuuuuuuuuuuuuuuuuuuuck"
-    },
-    {
-      "id": "f3f3",
-      "userId": "1",
-      "postId": null,
-      "commentContent": "LLike this bruh"
-    },
-    {
-      "id": "be09",
-      "userId": "0",
-      "postId": null,
-      "commentContent": "stnh"
-    },
-    {
-      "id": "89de",
-      "userId": "0",
-      "postId": null,
-      "commentContent": "snthhhts"
-    },
-    {
-      "id": "7610",
-      "userId": "0",
-      "postId": null,
-      "commentContent": "We can do things"
-    },
-    {
-      "id": "52ef",
-      "userId": "0",
-      "postId": null,
-      "commentContent": "Fight me"
-    },
-    {
       "id": "de40",
       "userId": "0",
       "postId": "ea91",
@@ -431,16 +263,10 @@
       "commentContent": "Lets do this some more and forget about teh rest of the day and cry awayLets do this some more and forget about teh rest of the day and cry awayLets do this some more and forget about teh rest of the day and cry awayLets do this some more and forget about teh rest of the day and cry away"
     },
     {
-      "id": "55c4",
+      "id": "f242",
       "userId": "0",
-      "postId": "7f49",
-      "commentContent": "test subpoint"
-    },
-    {
-      "id": "9057",
-      "userId": "0",
-      "postId": "7f49",
-      "commentContent": "The fuck is the deal with this?"
+      "postId": null,
+      "commentContent": "Try and delete this comment"
     }
   ],
   "favorites": [
@@ -460,69 +286,9 @@
       "postId": "b239"
     },
     {
-      "id": "82eb",
-      "userId": "1",
-      "postId": null
-    },
-    {
       "id": "1695",
       "userId": "1",
       "postId": "b7c7"
-    },
-    {
-      "id": "88e3",
-      "userId": "0",
-      "postId": null
-    },
-    {
-      "id": "5e14",
-      "userId": "0",
-      "postId": null
-    },
-    {
-      "id": "1f16",
-      "userId": "0",
-      "postId": null
-    },
-    {
-      "id": "0542",
-      "userId": "0",
-      "postId": null
-    },
-    {
-      "id": "789d",
-      "userId": "1",
-      "postId": null
-    },
-    {
-      "id": "4ea6",
-      "userId": "1",
-      "postId": null
-    },
-    {
-      "id": "3795",
-      "userId": "1",
-      "postId": null
-    },
-    {
-      "id": "2e9f",
-      "userId": "0",
-      "postId": null
-    },
-    {
-      "id": "647d",
-      "userId": "0",
-      "postId": null
-    },
-    {
-      "id": "dc51",
-      "userId": "0",
-      "postId": null
-    },
-    {
-      "id": "342b",
-      "userId": "0",
-      "postId": null
     },
     {
       "id": "33c6",
@@ -560,59 +326,9 @@
       "postId": "05de"
     },
     {
-      "id": "69dc",
-      "userId": "44f9",
-      "postId": "8eed"
-    },
-    {
-      "id": "7f95",
-      "userId": "0",
-      "postId": "65a8"
-    },
-    {
-      "id": "d039",
-      "userId": "0",
-      "postId": "fc0e"
-    },
-    {
       "id": "7aae",
       "userId": "0",
       "postId": "cc3d"
-    },
-    {
-      "id": "6f23",
-      "userId": "0",
-      "postId": "eebc"
-    },
-    {
-      "id": "0a4d",
-      "userId": "44f9",
-      "postId": "65a8"
-    },
-    {
-      "id": "ea17",
-      "userId": "44f9",
-      "postId": "eebc"
-    },
-    {
-      "id": "685b",
-      "userId": "44f9",
-      "postId": "e93d"
-    },
-    {
-      "id": "cb97",
-      "userId": "44f9",
-      "postId": "5d3f"
-    },
-    {
-      "id": "fd33",
-      "userId": "44f9",
-      "postId": "4f18"
-    },
-    {
-      "id": "37fc",
-      "userId": "0",
-      "postId": "d8b3"
     }
   ],
   "commentFavorites": [
@@ -637,36 +353,10 @@
       "commentId": "de40"
     },
     {
-      "id": "baaa",
-      "userId": "0",
-      "commentId": null
-    },
-    {
       "id": "33ec",
       "userId": "0",
       "commentId": "11"
-    },
-    {
-      "id": "d8a5",
-      "userId": "0",
-      "commentId": null
-    },
-    {
-      "id": "461d",
-      "userId": "0",
-      "commentId": "55c4"
     }
   ],
-  "bookmarks": [
-    {
-      "id": "b325",
-      "userId": "0",
-      "postId": null
-    },
-    {
-      "id": "f320",
-      "userId": "0",
-      "postId": "eebc"
-    }
-  ]
+  "bookmarks": []
 }
