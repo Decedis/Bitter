@@ -25,7 +25,7 @@
 ## Feature TODO
 
 - [x] Login
-- [ ] Account creation
+- [x] Account creation
 - [x] Create posts
 - [x] Like posts
 - [x] Bookmark posts
