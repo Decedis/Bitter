@@ -1,8 +1,8 @@
-import { Comments, Post } from "../types";
+import { Post } from "../types";
 
 import { EllipsisVerticalIcon } from "@heroicons/react/24/outline";
-import { useContext, useState } from "react";
-import { UserContext } from "../Providers/FakeAuthProvider";
+import { useState } from "react";
+import { useRequiredUser } from "../Providers/FakeAuthProvider";
 import {
   useBookmarks,
   useCommentFavorites,
@@ -34,7 +34,7 @@ export const PostCard = ({
   const [isEditPost, setIsEditPost] = useState(false);
   const userQuery = useUser();
   const postsQuery = usePosts();
-  const { user } = useContext(UserContext);
+  const user = useRequiredUser();
 
   const { trigger: deletePostTrigger } = useDeletePosts();
   const { trigger: deleteCommentTrigger } = useDeleteComment();
@@ -47,18 +47,6 @@ export const PostCard = ({
   const commentFavQuery = useCommentFavorites();
   const bookmarkQuery = useBookmarks();
 
-  //ignore this, it doesn't do anything is is slated for deletion.
-  const commentsPrune = async () => {
-    if (commentsQuery.data) {
-      const arr = await Promise.all(commentsQuery.data).then((commentArr) => {
-        return commentArr.filter((comment) => comment.postId !== null);
-      });
-
-      return arr;
-    }
-  };
-  commentsPrune();
-
   const profileImage = () => {
     const foundUser = userQuery.data?.find((user) => user.id === createdByID);
     return foundUser
@@ -66,90 +54,82 @@ export const PostCard = ({
       : "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg";
   };
 
-  const deleteButton =
-    user?.id === createdByID ? (
-      <button
-        onClick={() => {
-          deletePostTrigger(id, {
-            optimisticData:
-              postsQuery.data &&
-              postsQuery.data.filter((post) => post.id !== id),
-            rollbackOnError: true,
-          });
-          commentsQuery.data?.map((comment) => {
-            if (comment.postId === id) {
-              deleteCommentTrigger(comment.id, {
-                optimisticData:
-                  commentsQuery.data &&
-                  commentsQuery.data.filter((comment) => comment.postId !== id),
-                rollbackOnError: true,
-              });
-              commentFavQuery.data?.map((comFav) => {
-                if (comFav.commentId === comment.id) {
-                  deleteCommentFavoriteTrigger(comFav.id, {
-                    optimisticData:
-                      commentFavQuery.data &&
-                      commentFavQuery.data.filter(
-                        (comFav) => comFav.commentId !== comment.id
-                      ),
-                    rollbackOnError: true,
-                  });
-                }
-              });
-            }
-          });
-          bookmarkQuery.data?.map((bookmark) => {
-            //On occasion a bug occurs that fails to delete the data. Can't reliably reproduce
-            if (bookmark.postId === id) {
-              deleteBookmarkTrigger(bookmark.id, {
-                optimisticData:
-                  bookmarkQuery.data &&
-                  bookmarkQuery.data.filter(
-                    (bookmark) => bookmark.postId !== id
-                  ),
-                rollbackOnError: true,
-              });
-            }
-          });
-          favQuery.data?.map((fav) => {
-            if (fav.postId === id) {
-              deleteFavoriteTrigger(fav.id, {
-                optimisticData:
-                  favQuery.data &&
-                  favQuery.data.filter((fav) => fav.postId !== id),
-                rollbackOnError: true,
-              });
-            }
-          });
-        }}
-      >
-        Delete
-      </button>
-    ) : (
-      <></>
-    );
+  const deleteButtonOperation = () => {
+    deletePostTrigger(id, {
+      optimisticData:
+        postsQuery.data && postsQuery.data.filter((post) => post.id !== id),
+      rollbackOnError: true,
+    });
+    commentsQuery.data?.map((comment) => {
+      if (comment.postId === id) {
+        deleteCommentTrigger(comment.id, {
+          optimisticData:
+            commentsQuery.data &&
+            commentsQuery.data.filter((comment) => comment.postId !== id),
+          rollbackOnError: true,
+        });
+        commentFavQuery.data?.map((comFav) => {
+          if (comFav.commentId === comment.id) {
+            deleteCommentFavoriteTrigger(comFav.id, {
+              optimisticData:
+                commentFavQuery.data &&
+                commentFavQuery.data.filter(
+                  (comFav) => comFav.commentId !== comment.id
+                ),
+              rollbackOnError: true,
+            });
+          }
+        });
+      }
+    });
+    bookmarkQuery.data?.map((bookmark) => {
+      //On occasion a bug occurs that fails to delete the data. Can't reliably reproduce
+      if (bookmark.postId === id) {
+        deleteBookmarkTrigger(bookmark.id, {
+          optimisticData:
+            bookmarkQuery.data &&
+            bookmarkQuery.data.filter((bookmark) => bookmark.postId !== id),
+          rollbackOnError: true,
+        });
+      }
+    });
+    favQuery.data?.map((fav) => {
+      if (fav.postId === id) {
+        deleteFavoriteTrigger(fav.id, {
+          optimisticData:
+            favQuery.data && favQuery.data.filter((fav) => fav.postId !== id),
+          rollbackOnError: true,
+        });
+      }
+    });
+  };
 
-  const postDropDownMenu =
-    user?.id === createdByID ? (
-      <div className="dropdown dropdown-right">
-        <div tabIndex={0}>
-          <EllipsisVerticalIcon className="w-5 h-5" />
-        </div>
-        <ul
-          tabIndex={0}
-          className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
-        >
-          <li>{deleteButton}</li>
-          <li>
-            <button className="btn" onClick={() => setIsEditPost(true)}>
-              Edit
-            </button>
-          </li>
-        </ul>
+  const postDropDownMenu = (
+    <div className="dropdown dropdown-right">
+      <div tabIndex={0}>
+        <EllipsisVerticalIcon className="w-5 h-5" />
       </div>
-    ) : (
-      <></>
-    );
+      <ul
+        tabIndex={0}
+        className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+      >
+        <li>
+          <button
+            onClick={
+              user.id === createdByID ? deleteButtonOperation : undefined
+            }
+          >
+            Delete
+          </button>
+        </li>
+        <li>
+          <button className="btn" onClick={() => setIsEditPost(true)}>
+            Edit
+          </button>
+        </li>
+      </ul>
+    </div>
+  );
 
   return (
     <div
@@ -167,7 +147,7 @@ export const PostCard = ({
             {findAuthorName(createdByID, userQuery)}
           </div>
         </div>
-        {postDropDownMenu}
+        {user?.id === createdByID ? postDropDownMenu : null}
       </h3>
       <div className="postContent text-white w-full h-40">
         {isEditPost ? (
