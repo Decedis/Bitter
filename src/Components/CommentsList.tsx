@@ -11,13 +11,9 @@ export const CommentsList = ({
   commentsList: Comments[];
   postId: string;
 }) => {
-  const renderComments = () => {
-    if (collapsed) {
-      return <></>;
-    } else if (!collapsed && commentsList.length === 0) {
-      return <CreateComment postId={postId} />;
-    } else if (!collapsed && commentsList.length > 0) {
-      return (
+  return (
+    <>
+      {!collapsed && commentsList ? (
         <>
           {commentsList.map((commentVal: Comments) => (
             <CommentCard
@@ -30,9 +26,7 @@ export const CommentsList = ({
           ))}
           <CreateComment postId={postId} />
         </>
-      );
-    }
-  };
-
-  return <>{renderComments()}</>;
+      ) : null}
+    </>
+  );
 };

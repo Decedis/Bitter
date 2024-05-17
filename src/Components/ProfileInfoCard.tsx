@@ -21,13 +21,13 @@ export const ProfileInfoCard = ({
   const navigate = useNavigate();
 
   useEffect(() => {
-    setPictureURL(profilePicture);
+    setPictureURL(profilePicture as string);
   }, [profilePicture]);
 
   const handleUserPatch = () => {
     patchUserProfilePictureTrigger(
       {
-        id: id,
+        id: id as string,
         profilePicture: pictureURL,
       },
       {
@@ -48,7 +48,7 @@ export const ProfileInfoCard = ({
         console.log("Valid URL");
       } else {
         console.log("Invalid image URL");
-        setPictureURL(profilePicture);
+        setPictureURL(profilePicture as string);
       }
     } catch (error) {
       console.error("Error checking image URL:", error);
@@ -118,9 +118,7 @@ export const ProfileInfoCard = ({
             <PaperAirplaneIcon className="w-6 h-6" />
           </button>
         </form>
-      ) : (
-        <div></div>
-      )}
+      ) : null}
     </>
   );
 };

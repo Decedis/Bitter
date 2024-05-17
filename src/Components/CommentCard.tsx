@@ -3,8 +3,8 @@ import { useCommentFavorites, useComments, useUser } from "../services/queries";
 import { CommentFavorites, Comments } from "../types";
 import { findAuthorName } from "../utils";
 import { PostButton } from "./PostButton";
-import { useContext, useState } from "react";
-import { UserContext } from "../Providers/FakeAuthProvider";
+import { useState } from "react";
+import { useRequiredUser } from "../Providers/FakeAuthProvider";
 import {
   useCreateCommentFavorite,
   useDeleteComment,
@@ -12,65 +12,63 @@ import {
 } from "../services/mutations";
 import { PatchComment } from "./PatchComment";
 
-export const CommentCard = ({
-  id,
-  userId,
-  commentContent,
-  postId,
-}: Comments) => {
+export const CommentCard = ({ id, userId, commentContent }: Comments) => {
   const [isEditComment, setIsEditComment] = useState(false);
 
   const userQuery = useUser();
   const commentsQuery = useComments();
   const commentFavQuery = useCommentFavorites();
-  const { user } = useContext(UserContext);
+  const user = useRequiredUser();
   const { trigger: createCommentFavoriteTrigger } = useCreateCommentFavorite();
   const { trigger: deleteCommentFavoriteTrigger } = useDeleteCommentFavorite();
   const { trigger: deleteCommentsTrigger } = useDeleteComment();
 
-  console.log("I'm not using postID: ", postId);
-
-  const deleteButton =
-    user?.id === userId ? (
-      <button
-        onClick={() => {
-          deleteCommentsTrigger(id, {
-            optimisticData:
-              commentsQuery.data &&
-              commentsQuery.data.filter((post) => post.id !== id),
-            rollbackOnError: true,
-          });
-        }}
-      >
-        Delete
-      </button>
-    ) : (
-      <></>
-    );
-
-  const commentDropDownMenu =
-    user?.id === userId ? (
-      <div className="dropdown dropdown-right">
-        <div tabIndex={0}>
-          <EllipsisVerticalIcon className="w-5 h-5" />
-        </div>
-        <ul
-          tabIndex={0}
-          className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
-        >
-          <li>{deleteButton}</li>
-          <li>
-            <button className="btn" onClick={() => setIsEditComment(true)}>
-              Edit
-            </button>
-          </li>
-        </ul>
+  const commentDropDownMenu = (
+    <div className="dropdown dropdown-right">
+      <div tabIndex={0}>
+        <EllipsisVerticalIcon className="w-5 h-5" />
       </div>
-    ) : (
-      <></>
-    );
+      <ul
+        tabIndex={0}
+        className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+      >
+        <li>
+          <button
+            className="btn"
+            onClick={() => {
+              deleteCommentsTrigger(id, {
+                optimisticData:
+                  commentsQuery.data &&
+                  commentsQuery.data.filter((post) => post.id !== id),
+                rollbackOnError: true,
+              });
+              commentFavQuery.data?.map((comFav) => {
+                if (comFav.commentId === id) {
+                  deleteCommentFavoriteTrigger(comFav.id, {
+                    optimisticData:
+                      commentFavQuery.data &&
+                      commentFavQuery.data.filter(
+                        (comFav) => comFav.commentId !== id
+                      ),
+                    rollbackOnError: true,
+                  });
+                }
+              });
+            }}
+          >
+            Delete
+          </button>
+        </li>
+        <li>
+          <button className="btn" onClick={() => setIsEditComment(true)}>
+            Edit
+          </button>
+        </li>
+      </ul>
+    </div>
+  );
 
-  const isHeartActive = (
+  const isCommentHeartActive = (
     localId: string,
     commentFavQuery: CommentFavorites[]
   ) => {
@@ -82,12 +80,12 @@ export const CommentCard = ({
         return true;
       }
     }
-    if (!user) {
-      return false;
-    }
   };
 
-  const cardLikes = (localId: string, commentFavQuery: CommentFavorites[]) => {
+  const commentLikes = (
+    localId: string,
+    commentFavQuery: CommentFavorites[]
+  ) => {
     const newArr = (commentFavQuery ?? []).filter((fav) => {
       return fav.commentId === localId;
     });
@@ -102,9 +100,11 @@ export const CommentCard = ({
   };
 
   const handleCreateCommentFavorite = async () => {
-    if (user) {
-      if (isHeartActive(id, commentFavQuery.data as CommentFavorites[])) {
-        const favoriteID = findFavoriteID(id, user?.id);
+    if (user.id) {
+      if (
+        isCommentHeartActive(id, commentFavQuery.data as CommentFavorites[])
+      ) {
+        const favoriteID = findFavoriteID(id, user.id);
         if (favoriteID && favoriteID.id) {
           deleteCommentFavoriteTrigger(favoriteID.id, {
             optimisticData:
@@ -148,7 +148,7 @@ export const CommentCard = ({
         <>
           <div className="flex justify-between">
             <div>@{findAuthorName(userId, userQuery)}</div>
-            {commentDropDownMenu}
+            {user?.id === userId ? commentDropDownMenu : null}
           </div>
           <div>{commentContent}</div>
           <div className="flex bg-blue-500 rounded-md m-1 mt-4 p-1 justify-end">
@@ -156,7 +156,7 @@ export const CommentCard = ({
               icon={
                 <HeartIcon
                   className={
-                    isHeartActive(
+                    isCommentHeartActive(
                       id,
                       commentFavQuery.data as CommentFavorites[]
                     )
@@ -169,7 +169,8 @@ export const CommentCard = ({
                 return handleCreateCommentFavorite();
               }}
               value={
-                cardLikes(id, commentFavQuery.data as CommentFavorites[]).length
+                commentLikes(id, commentFavQuery.data as CommentFavorites[])
+                  .length
               }
             />
           </div>

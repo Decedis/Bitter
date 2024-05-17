@@ -1,8 +1,8 @@
 export interface User {
-  id: string | undefined;
+  id?: string | undefined;
   userName: string;
   password: string;
-  profilePicture: string;
+  profilePicture?: string;
 }
 
 export type Comments = {
@@ -36,7 +36,6 @@ export type Post = {
   createdByID: string;
   postContent: string;
   creationTime: Date;
-  tag: string;
   likes: number; //how often the point is liked
   comments: Comments[];
 };

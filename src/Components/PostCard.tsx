@@ -83,7 +83,6 @@ export const PostCard = ({
       }
     });
     bookmarkQuery.data?.map((bookmark) => {
-      //On occasion a bug occurs that fails to delete the data. Can't reliably reproduce
       if (bookmark.postId === id) {
         deleteBookmarkTrigger(bookmark.id, {
           optimisticData:
@@ -160,9 +159,7 @@ export const PostCard = ({
           postContent
         )}
       </div>
-      {isEditPost ? (
-        <></>
-      ) : (
+      {isEditPost ? null : (
         <PostBar comments={comments} likes={likes} id={id} />
       )}
     </div>

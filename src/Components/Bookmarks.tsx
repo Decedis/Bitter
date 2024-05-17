@@ -35,13 +35,12 @@ export const Bookmarks = () => {
     <div className="flex flex-col gap-2 justify-center items-center min-h-18">
       <h1 className="mt-6">Bookmarks</h1>
       {userBookmarks && userBookmarks.length > 0 ? (
-        userBookmarks?.map((post) => (
+        userBookmarks.map((post) => (
           <PostCard
             key={post.id}
             id={post.id}
             createdByID={post.createdByID}
             creationTime={post.creationTime}
-            tag={post.tag}
             postContent={post.postContent}
             likes={cardLikes(post.id, favQuery.data as Favorites[]).length}
             comments={postComments(post.id, commentsQuery)}

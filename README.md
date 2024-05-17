@@ -38,7 +38,7 @@
 - [x] Like comments
 - [x] Profile route
 - [x] Profile view with posts
-- [ ] Toast pop-ups for bookmark creation, pos creation, and post deletion.
+- [ ] Toast pop-ups for bookmark creation, post creation, and post deletion.
 
 ## Code TODO
 

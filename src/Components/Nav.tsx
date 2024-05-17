@@ -1,25 +1,15 @@
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { UserContext } from "../Providers/FakeAuthProvider";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { UserIcon } from "@heroicons/react/24/outline";
+import { User } from "../types";
 
 export const Nav = () => {
   const { user, setUser } = useContext(UserContext);
-  const [buttonText, setButtonText] = useState<string>("Login");
   const navigate = useNavigate();
 
-  useEffect(() => {
-    user ? setButtonText("Logout") : setButtonText("Login");
-  }, [user]);
-
   const handleLogout = () => {
-    setUser({
-      id: undefined,
-      userName: "",
-      password: "",
-      profilePicture:
-        "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg",
-    });
+    setUser({} as User);
     localStorage.removeItem("user");
     navigate("/login");
   };
@@ -33,13 +23,13 @@ export const Nav = () => {
       </Link>
       <ul className="menu menu-horizontal px-1 w-full justify-end flex gap-8">
         <li>
-          {user ? (
+          {user?.id ? (
             <button className="btn" onClick={handleLogout}>
-              {buttonText}
+              Logout
             </button>
           ) : (
             <Link className="btn" to="/login">
-              {buttonText}
+              Login
             </Link>
           )}
         </li>
@@ -70,15 +60,10 @@ export const Nav = () => {
                 Profile
               </Link>
             </li>
-            {/* <li>
-              <a>Settings</a>
-            </li> */}
+
             <li>
               <Link to="/bookmarks">Bookmarks</Link>
             </li>
-            {/* <li>
-              <a>Logout</a>
-            </li> */}
           </ul>
         </div>
       </ul>

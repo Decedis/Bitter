@@ -1,31 +1,34 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useComments } from "../services/queries";
-import { UserContext } from "../Providers/FakeAuthProvider";
+import { useRequiredUser } from "../Providers/FakeAuthProvider";
 import { useCreateComment } from "../services/mutations";
 import { PaperAirplaneIcon } from "@heroicons/react/16/solid";
 
 export const CreateComment = (postId: { postId: string }) => {
   const commentsQuery = useComments();
-  const { user } = useContext(UserContext);
+  const user = useRequiredUser();
   const { trigger, isMutating } = useCreateComment();
   const [commentDraft, setCommentDraft] = useState("");
 
   const handleCreateComment = async () => {
-    trigger(
-      {
-        commentContent: commentDraft,
-        userId: user?.id,
-        postId: postId.postId,
-      },
-      {
-        optimisticData: commentsQuery.data && [
-          ...commentsQuery.data,
-          { commentContent: commentDraft, createdByID: user?.id },
-        ],
-        rollbackOnError: true,
-      }
-    );
+    user.id
+      ? trigger(
+          {
+            commentContent: commentDraft,
+            userId: user?.id,
+            postId: postId.postId,
+          },
+          {
+            optimisticData: commentsQuery.data && [
+              ...commentsQuery.data,
+              { commentContent: commentDraft, createdByID: user?.id },
+            ],
+            rollbackOnError: true,
+          }
+        )
+      : null;
   };
+
   return (
     <form
       className="textarea textarea-secondary relative p-0 m-2 border-2 text-black-900"

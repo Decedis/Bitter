@@ -14,9 +14,6 @@ export const useUser = () => {
 };
 
 export const usePosts = () => {
-  // Enable splash screen to login through logic below
-  //   const { data } = useUser();
-  //   return useSWR<Post[]>(data ? "/posts" : null);
   return useSWR<Post[]>("/posts");
 };
 

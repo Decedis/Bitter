@@ -1,5 +1,5 @@
-import { useContext, useState } from "react";
-import { UserContext } from "../Providers/FakeAuthProvider";
+import { useState } from "react";
+import { useRequiredUser } from "../Providers/FakeAuthProvider";
 import { usePosts } from "../services/queries";
 import { useCreatePosts } from "../services/mutations";
 import { PaperAirplaneIcon } from "@heroicons/react/16/solid";
@@ -7,7 +7,7 @@ import { PaperAirplaneIcon } from "@heroicons/react/16/solid";
 export const CreatePost = () => {
   //post content
   //created by id
-  const { user } = useContext(UserContext);
+  const user = useRequiredUser();
   const postsQuery = usePosts();
   const { trigger, isMutating } = useCreatePosts();
   const [postDraft, setPostDraft] = useState("");
@@ -21,13 +21,13 @@ export const CreatePost = () => {
     trigger(
       {
         postContent: postDraft,
-        createdByID: user?.id,
+        createdByID: user.id as string,
         creationTime: currentTime,
       },
       {
         optimisticData: postsQuery.data && [
           ...postsQuery.data,
-          { postContent: postDraft, createdByID: user?.id },
+          { postContent: postDraft, createdByID: user.id },
         ],
         rollbackOnError: true,
       }
@@ -58,7 +58,7 @@ export const CreatePost = () => {
       <button
         className="btn btn-ghost absolute bottom-2 right-2"
         type="submit"
-        disabled={isMutating || postsQuery.isValidating || !user}
+        disabled={isMutating || postsQuery.isValidating || !user.id}
       >
         <PaperAirplaneIcon className="w-6 h-6" />
       </button>

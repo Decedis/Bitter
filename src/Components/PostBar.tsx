@@ -6,7 +6,7 @@ import {
 import { Bookmark, Comments, Favorites } from "../types";
 import { CommentsList } from "./CommentsList";
 import { PostButton } from "./PostButton";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import {
   useCreateBookmark,
   useCreateFavorite,
@@ -14,7 +14,7 @@ import {
   useDeleteFavorite,
 } from "../services/mutations";
 import { useBookmarks, useFavorites } from "../services/queries";
-import { UserContext } from "../Providers/FakeAuthProvider";
+import { useRequiredUser } from "../Providers/FakeAuthProvider";
 
 export const PostBar = ({
   comments,
@@ -25,7 +25,7 @@ export const PostBar = ({
   comments: Comments[];
   id: string;
 }) => {
-  const { user } = useContext(UserContext);
+  const user = useRequiredUser();
   const favQuery = useFavorites();
   const bookmarkQuery = useBookmarks();
   const { trigger: createFavoriteTrigger } = useCreateFavorite();
@@ -43,13 +43,11 @@ export const PostBar = ({
     const newArr = (favQuery ?? []).filter((fav) => {
       return fav.postId === localId;
     });
+
     for (let i = 0; i < newArr.length; i++) {
-      if (user?.id === newArr[i].userId) {
+      if (user.id === newArr[i].userId) {
         return true;
       }
-    }
-    if (!user) {
-      return false;
     }
   };
 
@@ -63,9 +61,6 @@ export const PostBar = ({
         return true;
       }
     }
-    if (!user) {
-      return false;
-    }
   };
 
   const findFavoriteID = (postID: string, userID: string) => {
@@ -76,7 +71,7 @@ export const PostBar = ({
   };
 
   const handleFavoriteCreation = async () => {
-    if (user) {
+    if (user.id) {
       if (isHeartActive(id, favQuery.data as Favorites[])) {
         const favoriteID = findFavoriteID(id, user?.id);
         if (favoriteID && favoriteID.id) {
@@ -115,7 +110,7 @@ export const PostBar = ({
   };
 
   const handleBookmarkCreation = async () => {
-    if (user) {
+    if (user.id) {
       if (isBookmarkActive(id, bookmarkQuery.data as Bookmark[])) {
         const bookmarkID = findBookmarkID(id, user?.id);
         if (bookmarkID && bookmarkID.id) {
