@@ -1,82 +1,10 @@
 {
   "posts": [
     {
-      "id": "4787",
-      "postContent": "Let's verify this ",
+      "id": "28c0",
+      "postContent": "Hello world",
       "createdByID": "0",
-      "creationTime": "2024-03-16T23:19:21.399Z"
-    },
-    {
-      "id": "b239",
-      "postContent": "Let's verify this again",
-      "createdByID": "0",
-      "creationTime": "2024-03-16T23:20:50.438Z"
-    },
-    {
-      "id": "d390",
-      "postContent": "test of the path",
-      "createdByID": "0",
-      "creationTime": "2024-03-18T03:18:39.956Z"
-    },
-    {
-      "id": "2129",
-      "postContent": "This site is so shit, but it's getting better. ",
-      "createdByID": "0",
-      "creationTime": "2024-03-18T07:00:47.225Z"
-    },
-    {
-      "id": "e6a2",
-      "postContent": "let us test our path",
-      "createdByID": "0",
-      "creationTime": "2024-03-20T21:15:57.822Z"
-    },
-    {
-      "id": "84ab",
-      "postContent": "why no submit?",
-      "createdByID": "0",
-      "creationTime": "2024-03-20T21:44:01.575Z"
-    },
-    {
-      "id": "d65d",
-      "postContent": "hello valiant",
-      "createdByID": "0",
-      "creationTime": "2024-03-20T22:03:23.439Z"
-    },
-    {
-      "id": "b7c7",
-      "postContent": "tt",
-      "createdByID": "0",
-      "creationTime": "2024-03-20T23:57:14.104Z"
-    },
-    {
-      "id": "aeb6",
-      "postContent": "I made this",
-      "createdByID": "1",
-      "creationTime": "2024-04-05T06:45:14.721Z"
-    },
-    {
-      "id": "05de",
-      "postContent": "How could I make this?",
-      "createdByID": "1",
-      "creationTime": "2024-04-05T06:45:18.145Z"
-    },
-    {
-      "id": "cc3d",
-      "postContent": "O god I made this",
-      "createdByID": "1",
-      "creationTime": "2024-04-05T06:45:21.245Z"
-    },
-    {
-      "id": "ea91",
-      "postContent": "I FUCKING MADE THIS...or did I? ...shit...I'm editing this...and it's overflowing?!",
-      "createdByID": "0",
-      "creationTime": "2024-04-05T22:15:12.929Z"
-    },
-    {
-      "id": "88cb",
-      "postContent": "One, two, three, four?",
-      "createdByID": "44f9",
-      "creationTime": "2024-05-17T00:27:13.435Z"
+      "creationTime": "2024-05-17T10:51:32.567Z"
     }
   ],
   "users": [
@@ -91,298 +19,35 @@
       "userName": "test_2",
       "password": "testPass2",
       "profilePicture": "https://images.unsplash.com/photo-1713872288272-afa3f0d001c2?q=80&w=3091&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    },
-    {
-      "id": "2",
-      "userName": "test_3",
-      "password": "testPass3",
-      "profilePicture": "https://images.unsplash.com/photo-1714182370392-a32d43080717?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    },
-    {
-      "id": "44f9",
-      "userName": "Jon",
-      "password": "test123",
-      "profilePicture": "https://media.guitarcenter.com/is/image/MMGS7/Synyster-Gates-Custom-S-Relic-Electric-Guitar-Distressed-Satin-Black/M11245000001000-00-264x264.jpg"
     }
   ],
   "comments": [
     {
-      "id": "0",
+      "id": "92dd",
       "userId": "0",
-      "postId": "4787",
-      "commentContent": "The content of the comment"
-    },
-    {
-      "id": "1",
-      "userId": "0",
-      "postId": "4787",
-      "commentContent": "The content of the comment"
-    },
-    {
-      "id": "2",
-      "userId": "0",
-      "postId": "4787",
-      "commentContent": "The content of the comment"
-    },
-    {
-      "id": "3",
-      "userId": "1",
-      "postId": "4787",
-      "commentContent": "The content of the comment"
-    },
-    {
-      "id": "4",
-      "userId": "0",
-      "postId": "4787",
-      "commentContent": "The content of the comment"
-    },
-    {
-      "id": "5",
-      "userId": "0",
-      "postId": "b239",
-      "commentContent": "The content of the comment"
-    },
-    {
-      "id": "6",
-      "userId": "1",
-      "postId": "b239",
-      "commentContent": "The content of the comment"
-    },
-    {
-      "id": "7",
-      "userId": "0",
-      "postId": "b239",
-      "commentContent": "The content of the comment"
-    },
-    {
-      "id": "8",
-      "userId": "0",
-      "postId": "b239",
-      "commentContent": "The content of the comment is sorta mid"
-    },
-    {
-      "id": "9",
-      "userId": "1",
-      "postId": "b239",
-      "commentContent": "The content of the comment could be better"
-    },
-    {
-      "id": "10",
-      "userId": "1",
-      "postId": "b239",
-      "commentContent": "The content of the comment is this?"
-    },
-    {
-      "id": "11",
-      "userId": "0",
-      "postId": "d390",
-      "commentContent": "aoeu"
-    },
-    {
-      "id": "12",
-      "userId": "1",
-      "postId": "d390",
-      "commentContent": "The content of the comment"
-    },
-    {
-      "id": "13",
-      "userId": "0",
-      "postId": "d390",
-      "commentContent": "The content of the comment"
-    },
-    {
-      "id": "14",
-      "userId": "0",
-      "postId": 0,
-      "commentContent": "The content of the comment"
-    },
-    {
-      "id": "15",
-      "userId": "0",
-      "postId": 10,
-      "commentContent": "The content of the comment"
-    },
-    {
-      "id": "16",
-      "userId": "1",
-      "postId": 10,
-      "commentContent": "The content of the comment"
-    },
-    {
-      "id": "17",
-      "userId": "1",
-      "postId": 5,
-      "commentContent": "The content of the comment"
-    },
-    {
-      "id": "18",
-      "userId": "0",
-      "postId": 8,
-      "commentContent": "The content of the comment"
-    },
-    {
-      "id": "19",
-      "userId": "1",
-      "postId": 6,
-      "commentContent": "The content of the comment"
-    },
-    {
-      "id": "de40",
-      "userId": "0",
-      "postId": "ea91",
-      "commentContent": "I eat butterflies....never! But this does work...eauae"
-    },
-    {
-      "id": "a495",
-      "userId": "0",
-      "postId": "ea91",
-      "commentContent": "test"
-    },
-    {
-      "id": "fc2c",
-      "userId": "0",
-      "postId": "ea91",
-      "commentContent": "i"
-    },
-    {
-      "id": "ff67",
-      "userId": "0",
-      "postId": "ea91",
-      "commentContent": "ate"
-    },
-    {
-      "id": "10f8",
-      "userId": "0",
-      "postId": "ea91",
-      "commentContent": "Lets do this some more and forget about teh rest of the day and cry away"
-    },
-    {
-      "id": "04fa",
-      "userId": "0",
-      "postId": "ea91",
-      "commentContent": "Lets do this some more and forget about teh rest of the day and cry awayLets do this some more and forget about teh rest of the day and cry awayLets do this some more and forget about teh rest of the day and cry awayLets do this some more and forget about teh rest of the day and cry away"
-    },
-    {
-      "id": "f242",
-      "userId": "0",
-      "postId": null,
-      "commentContent": "Try and delete this comment"
+      "postId": "28c0",
+      "commentContent": "Comment"
     }
   ],
   "favorites": [
     {
-      "id": "9a8e",
+      "id": "1e04",
       "userId": "0",
-      "postId": "b7c7"
-    },
-    {
-      "id": "0f83",
-      "userId": "0",
-      "postId": "d390"
-    },
-    {
-      "id": "c9bc",
-      "userId": "0",
-      "postId": "b239"
-    },
-    {
-      "id": "1695",
-      "userId": "1",
-      "postId": "b7c7"
-    },
-    {
-      "id": "33c6",
-      "userId": "0",
-      "postId": "4787"
-    },
-    {
-      "id": "abb1",
-      "userId": "1",
-      "postId": "cc3d"
-    },
-    {
-      "id": "fc97",
-      "userId": "0",
-      "postId": "ea91"
-    },
-    {
-      "id": "985d",
-      "userId": "0",
-      "postId": "2129"
-    },
-    {
-      "id": "3d12",
-      "userId": "0",
-      "postId": "e6a2"
-    },
-    {
-      "id": "d2ac",
-      "userId": "0",
-      "postId": "aeb6"
-    },
-    {
-      "id": "598f",
-      "userId": "0",
-      "postId": "05de"
-    },
-    {
-      "id": "7aae",
-      "userId": "0",
-      "postId": "cc3d"
-    },
-    {
-      "id": "3d1e",
-      "userId": "44f9",
-      "postId": "cc3d"
-    },
-    {
-      "id": "4fea",
-      "userId": "44f9",
-      "postId": "88cb"
+      "postId": "28c0"
     }
   ],
   "commentFavorites": [
     {
-      "id": "13f4",
-      "userId": "1",
-      "commentId": "967b"
-    },
-    {
-      "id": "176e",
-      "userId": "1",
-      "commentId": "f3f3"
-    },
-    {
-      "id": "fd51",
+      "id": "880c",
       "userId": "0",
-      "commentId": "52ef"
-    },
-    {
-      "id": "8b23",
-      "userId": "0",
-      "commentId": "de40"
-    },
-    {
-      "id": "33ec",
-      "userId": "0",
-      "commentId": "11"
+      "commentId": "92dd"
     }
   ],
   "bookmarks": [
     {
-      "id": "efeb",
-      "userId": "44f9",
-      "postId": "88cb"
-    },
-    {
-      "id": "57e0",
-      "userId": "44f9",
-      "postId": "ea91"
-    },
-    {
-      "id": "6d09",
-      "userId": "44f9",
-      "postId": "cc3d"
+      "id": "2db8",
+      "userId": "0",
+      "postId": "28c0"
     }
   ]
 }

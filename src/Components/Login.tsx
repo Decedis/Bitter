@@ -14,7 +14,7 @@ export const Login = () => {
   const { setUser } = useAuth();
   const navigate = useNavigate();
 
-  !userQuery.data ? console.log(userQuery.error) : console.log(userQuery.data);
+  //!userQuery.data ? console.log(userQuery.error) : console.log(userQuery.data);
 
   const userLogin = (
     username: string,

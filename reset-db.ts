@@ -1,18 +1,7 @@
-import * as _ from "lodash-es";
 import { writeFileSync } from "fs";
-import { faker } from "@faker-js/faker";
-//const capitalize = _.capitalize;
-const range = _.range;
-const sample = _.sample;
-
-const postAmount = 20;
 
 const db = {
-  posts: range(postAmount).map((_, id) => ({
-    createdByID: sample([0, 1]),
-    postContent: faker.word.words(sample([8, 5, 7])),
-    id,
-  })),
+  posts: [],
   users: [
     {
       id: "0",
@@ -30,18 +19,8 @@ const db = {
     },
   ],
   //posts-to-tags or tags-to-posts
-  comments: range(postAmount).map((_, id) => ({
-    id,
-    userId: sample([0, 1]),
-    postId: sample(range(0, 19)),
-    commentContent: "The content of the comment",
-  })),
-  //comments-to-post: range(postAmount)
-  favorites: range(postAmount).map((_, id) => ({
-    id,
-    userId: sample([0, 1]),
-    postId: sample(range(0, 19)),
-  })),
+  comments: [],
+  favorites: [],
   commentFavorites: [],
   bookmarks: [],
 };
