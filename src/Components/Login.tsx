@@ -1,17 +1,16 @@
-import { useContext, useState } from "react";
-import { UserContext } from "../Providers/FakeAuthProvider";
+import { useState } from "react";
+import { useAuth } from "../Providers/FakeAuthProvider";
 import { useUser } from "../services/queries";
 import { User } from "../types";
 import { Link, useNavigate } from "react-router-dom";
 
 export const Login = () => {
-  const [userForm, setUserForm] = useState<Omit<User, "profilePicture">>({
-    id: undefined,
+  const [userForm, setUserForm] = useState<User>({
     userName: "",
     password: "",
   });
   const userQuery = useUser();
-  const { setUser } = useContext(UserContext);
+  const { setUser } = useAuth();
   const navigate = useNavigate();
 
   !userQuery.data ? console.log(userQuery.error) : console.log(userQuery.data);
@@ -36,8 +35,10 @@ export const Login = () => {
       action=""
       onSubmit={(e) => {
         e.preventDefault();
-        userLogin(userForm.userName, userForm.password, userQuery.data);
-        setUserForm({ id: undefined, userName: "", password: "" });
+
+        userLogin(userForm.userName, userForm.password, userQuery?.data);
+
+        setUserForm({} as User);
       }}
     >
       <h2 className="mb-8 border-b-2 border-white text-lg">Login</h2>
