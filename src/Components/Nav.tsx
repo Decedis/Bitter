@@ -1,11 +1,10 @@
 import { Link, Outlet, useNavigate } from "react-router-dom";
-import { UserContext } from "../Providers/FakeAuthProvider";
-import { useContext } from "react";
+import { useAuth } from "../Providers/FakeAuthProvider";
 import { UserIcon } from "@heroicons/react/24/outline";
 import { User } from "../types";
 
 export const Nav = () => {
-  const { user, setUser } = useContext(UserContext);
+  const { user, setUser } = useAuth();
   const navigate = useNavigate();
 
   const handleLogout = () => {
