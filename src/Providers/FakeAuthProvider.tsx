@@ -10,28 +10,26 @@ import {
 import { User } from "../types";
 
 type TAuth = {
-  user: User | null;
+  user?: User;
   setUser: Dispatch<SetStateAction<User>>;
 };
 
 const defaultAuthValue: TAuth = {
-  user: null,
+  user: {} as User,
   setUser: () => {},
 };
 
 export const UserContext = createContext<TAuth>(defaultAuthValue);
 
 export const FakeAuthProvider = ({ children }: { children: ReactNode }) => {
-  const [user, setUser] = useState<User>();
-
-  //TODO if localStorage "user" exists, set 'user' to localStorage val.
+  const [user, setUser] = useState<User>({} as User);
 
   useEffect(() => {
-    if (!user && localStorage.getItem("user")) {
+    if (localStorage.getItem("user")) {
       const userObj = localStorage.getItem("user");
       userObj ? setUser(JSON.parse(userObj)) : null;
     }
-  }, [user]);
+  }, []);
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
