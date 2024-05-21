@@ -3,6 +3,8 @@ import { User } from "../types";
 import { useCreateUser } from "../services/mutations";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../services/queries";
+import { KeyIcon, UserIcon } from "@heroicons/react/16/solid";
+import toast from "react-hot-toast";
 
 export const Signup = () => {
   const [newUser, setNewUser] = useState<Omit<User, "id">>({
@@ -34,7 +36,8 @@ export const Signup = () => {
       }
     );
   };
-  //TODO need to check for duplicates of usernames? Maybe?
+  //TODO ensure username follows convention
+  //TODO give success when user is created, and fail when user is not created.
   return (
     <form
       className="border-2 border-color-slate-500 w-96 mx-auto flex flex-col items-center bg-slate-700 text-white p-4 mt-12 gap-4 rounded-md"
@@ -42,21 +45,15 @@ export const Signup = () => {
       onSubmit={(e) => {
         e.preventDefault();
         handleAccountCreation();
-        navigate("/");
+        navigate("/login");
+        toast.success("User created");
         setNewUser({ userName: "", password: "", profilePicture: "" });
       }}
     >
       <h2 className="mb-8 border-b-2 border-white text-lg">Sign up</h2>
       <div className="flex flex-col flex-wrap w-11/12 h-28 items-center text-purple-700 gap-4 ">
         <label className="input input-bordered flex items-center gap-2">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 16 16"
-            fill="currentColor"
-            className="w-4 h-4 opacity-70"
-          >
-            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
-          </svg>
+          <UserIcon className="w-4 h-4 opacity-70" />
           <input
             type="text"
             className="grow"
@@ -68,18 +65,7 @@ export const Signup = () => {
           />
         </label>
         <label className="input input-bordered flex items-center gap-2">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 16 16"
-            fill="currentColor"
-            className="w-4 h-4 opacity-70"
-          >
-            <path
-              fillRule="evenodd"
-              d="M14 6a4 4 0 0 1-4.899 3.899l-1.955 1.955a.5.5 0 0 1-.353.146H5v1.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2.293a.5.5 0 0 1 .146-.353l3.955-3.955A4 4 0 1 1 14 6Zm-4-2a.75.75 0 0 0 0 1.5.5.5 0 0 1 .5.5.75.75 0 0 0 1.5 0 2 2 0 0 0-2-2Z"
-              clipRule="evenodd"
-            />
-          </svg>
+          <KeyIcon className="w-4 h-4 opacity-70" />
           <input
             type="password"
             className="grow"
@@ -91,7 +77,10 @@ export const Signup = () => {
         </label>
       </div>
       <div className="flex gap-4 items-center">
-        <input className="btn border-2 border-white p-2" type="submit" />
+        {/* <input className="btn border-2 border-white p-2" type="submit" /> */}
+        <button className="btn border-2 border-white p-2" type="submit">
+          Sign up
+        </button>
       </div>
     </form>
   );

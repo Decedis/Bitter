@@ -43,27 +43,29 @@ export const Nav = () => {
                 <img
                   className="rounded-xl"
                   alt="Tailwind CSS Navbar component"
-                  src={user?.profilePicture}
+                  src={user.profilePicture}
                 />
               ) : (
                 <UserIcon className="w-10 h-10" />
               )}
             </div>
           </div>
-          <ul
-            tabIndex={0}
-            className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-white rounded-box w-52 text-black"
-          >
-            <li>
-              <Link className="justify-between" to={`/profile/${user?.id}`}>
-                Profile
-              </Link>
-            </li>
+          {user?.id ? (
+            <ul
+              tabIndex={0}
+              className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-white rounded-box w-52 text-black"
+            >
+              <li>
+                <Link className="justify-between" to={`/profile/${user?.id}`}>
+                  Profile
+                </Link>
+              </li>
 
-            <li>
-              <Link to="/bookmarks">Bookmarks</Link>
-            </li>
-          </ul>
+              <li>
+                <Link to="/bookmarks">Bookmarks</Link>
+              </li>
+            </ul>
+          ) : null}
         </div>
       </ul>
       <Outlet />

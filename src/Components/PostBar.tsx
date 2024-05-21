@@ -15,6 +15,7 @@ import {
 } from "../services/mutations";
 import { useBookmarks, useFavorites } from "../services/queries";
 import { useRequiredUser } from "../Providers/FakeAuthProvider";
+import toast from "react-hot-toast";
 
 export const PostBar = ({
   comments,
@@ -99,6 +100,7 @@ export const PostBar = ({
       }
     } else {
       console.log("No user found");
+      toast.error("No user found");
     }
   };
 
@@ -140,6 +142,7 @@ export const PostBar = ({
       }
     } else {
       console.log("No user found");
+      toast.error("No user found");
     }
   };
 

@@ -9,6 +9,7 @@ import { Login } from "./Components/Login";
 import { ProfileViewer } from "./Components/ProfileViewer";
 import { User } from "./Components/User";
 import { Signup } from "./Components/Signup";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="bookmarks" element={<Bookmarks />} />
           </Route>
         </Routes>
+        <Toaster />
       </DataProvider>
     </FakeAuthProvider>
   );

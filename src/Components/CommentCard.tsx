@@ -11,6 +11,7 @@ import {
   useDeleteCommentFavorite,
 } from "../services/mutations";
 import { PatchComment } from "./PatchComment";
+import toast from "react-hot-toast";
 
 export const CommentCard = ({ id, userId, commentContent }: Comments) => {
   const [isEditComment, setIsEditComment] = useState(false);
@@ -130,6 +131,7 @@ export const CommentCard = ({ id, userId, commentContent }: Comments) => {
       }
     } else {
       console.log("No user found");
+      toast.error("No user found");
     }
   };
 

@@ -49,9 +49,11 @@ export const PostCard = ({
 
   const profileImage = () => {
     const foundUser = userQuery.data?.find((user) => user.id === createdByID);
-    return foundUser
-      ? foundUser.profilePicture
-      : "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg";
+    if (foundUser) {
+      return foundUser.profilePicture.length === 0
+        ? "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+        : foundUser?.profilePicture;
+    }
   };
 
   const deleteButtonOperation = () => {

@@ -5,6 +5,12 @@
       "postContent": "Hello world",
       "createdByID": "0",
       "creationTime": "2024-05-17T10:51:32.567Z"
+    },
+    {
+      "id": "3cd8",
+      "postContent": "Test",
+      "createdByID": "54d6",
+      "creationTime": "2024-05-21T06:12:59.192Z"
     }
   ],
   "users": [
@@ -19,6 +25,18 @@
       "userName": "test_2",
       "password": "testPass2",
       "profilePicture": "https://images.unsplash.com/photo-1713872288272-afa3f0d001c2?q=80&w=3091&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": "f767",
+      "userName": "Jon",
+      "password": "test123",
+      "profilePicture": ""
+    },
+    {
+      "id": "54d6",
+      "userName": "Tara",
+      "password": "123",
+      "profilePicture": ""
     }
   ],
   "comments": [
@@ -31,8 +49,13 @@
   ],
   "favorites": [
     {
-      "id": "1e04",
+      "id": "e16f",
       "userId": "0",
+      "postId": "28c0"
+    },
+    {
+      "id": "f7be",
+      "userId": "54d6",
       "postId": "28c0"
     }
   ],
@@ -47,6 +70,11 @@
     {
       "id": "2db8",
       "userId": "0",
+      "postId": "28c0"
+    },
+    {
+      "id": "8b5a",
+      "userId": "54d6",
       "postId": "28c0"
     }
   ]

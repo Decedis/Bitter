@@ -4,12 +4,15 @@ import { useUser } from "../services/queries";
 import { User } from "../types";
 import { Link, useNavigate } from "react-router-dom";
 import { UserIcon, KeyIcon } from "@heroicons/react/16/solid";
+import toast from "react-hot-toast";
 
 export const Login = () => {
-  const [userForm, setUserForm] = useState<User>({
-    userName: "",
-    password: "",
-  });
+  const [userForm, setUserForm] = useState<Omit<User, "id" | "profilePicture">>(
+    {
+      userName: "",
+      password: "",
+    }
+  );
   const userQuery = useUser();
   const { setUser } = useAuth();
   const navigate = useNavigate();
@@ -17,17 +20,23 @@ export const Login = () => {
   //!userQuery.data ? console.log(userQuery.error) : console.log(userQuery.data);
 
   const userLogin = (
-    username: string,
-    password: string,
+    userForm: { userName: string; password: string },
     allUserData?: User[]
   ) => {
-    allUserData?.some((u) => {
-      if (u.userName === username && u.password === password) {
-        localStorage.setItem("user", JSON.stringify(u));
-        navigate("/");
-        return setUser(u);
-      }
-    });
+    const foundUser = allUserData?.find(
+      (u) =>
+        u.userName === userForm.userName && u.password === userForm.password
+    );
+    if (foundUser) {
+      localStorage.setItem("user", JSON.stringify(foundUser));
+      navigate("/");
+      //This makes 2 errors and 1 success.
+      toast.success("Logged in");
+      return setUser(foundUser);
+    } else {
+      //This makes 3 error toasts. I'm not sure why.
+      toast.error("Failed to login");
+    }
   };
 
   return (
@@ -36,12 +45,12 @@ export const Login = () => {
       action=""
       onSubmit={(e) => {
         e.preventDefault();
-        userLogin(userForm.userName, userForm.password, userQuery?.data);
+        userLogin(userForm, userQuery?.data);
         setUserForm({ userName: "", password: "" });
       }}
     >
       <h2 className="mb-8 border-b-2 border-white text-lg">Login</h2>
-      <div className="flex flex-col flex-wrap w-11/12 h-28 items-center text-purple-700 gap-4 ">
+      <div className="flex flex-col flex-wrap w-11/12 h-28 items-center text-purple-200 gap-4 ">
         <label className="input input-bordered flex items-center gap-2">
           <UserIcon className="w-4 h-4 opacity-70" />
           <input
@@ -69,7 +78,7 @@ export const Login = () => {
       <div className="flex gap-4 items-center">
         <input className="btn border-2 border-white p-2" type="submit" />
         <Link
-          className="text-purple-400 border-b-2 border-purple-500"
+          className="text-purple-400 border-b-2 border-purple-200"
           to="/signup"
         >
           Sign up

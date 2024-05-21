@@ -40,8 +40,9 @@ export const User = () => {
         id={derivedUserInformation?.id}
         profilePicture={
           derivedUserInformation?.profilePicture ||
-          "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+          "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
         }
+        //TODO pass in a <UserIcon /> instead of the daisyUI link
       />
       <div className="flex flex-col flex-wrap gap-2  mx-auto justify-center">
         {favQuery && postsQuery ? (

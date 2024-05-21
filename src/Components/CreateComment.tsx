@@ -15,13 +15,13 @@ export const CreateComment = (postId: { postId: string }) => {
       ? trigger(
           {
             commentContent: commentDraft,
-            userId: user?.id,
+            userId: user.id,
             postId: postId.postId,
           },
           {
             optimisticData: commentsQuery.data && [
               ...commentsQuery.data,
-              { commentContent: commentDraft, createdByID: user?.id },
+              { commentContent: commentDraft, createdByID: user.id },
             ],
             rollbackOnError: true,
           }
@@ -53,7 +53,7 @@ export const CreateComment = (postId: { postId: string }) => {
       <button
         className="btn btn-ghost absolute bottom-2 right-2"
         type="submit"
-        disabled={isMutating || commentsQuery.isValidating || !user}
+        disabled={isMutating || commentsQuery.isValidating || !user.id}
       >
         <PaperAirplaneIcon className="w-6 h-6" />
       </button>
