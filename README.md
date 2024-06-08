@@ -5,6 +5,7 @@
 - React
 - Typescript
 - Tailwind
+- SWR + Axios
 
 ## Purpose
 
@@ -12,15 +13,10 @@
 
 ## Planned Features
 
-- Feed + Bookmarks
-- Post creation + post likes
 - Profiles
   - Follows/Following
 - Search
 
-## Improvements
-
-- Update the hooks to only work if the data is present
 
 ## Feature TODO
 
@@ -38,7 +34,7 @@
 - [x] Like comments
 - [x] Profile route
 - [x] Profile view with posts
-- [ ] Toast pop-ups for bookmark creation, post creation, and post deletion.
+- [x] Toast pop-ups for bookmark creation, post creation, and post deletion.
 
 ## Code TODO
 
@@ -65,6 +61,3 @@
 - [ ] Implement DB
 - [ ] Implement Tag system
 
-## Tip:
-
-- Choose to build only a slice of a larger project, this lets us create more projects.
